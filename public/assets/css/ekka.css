@@ -66,7 +66,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background: linear-gradient(to right,white,black);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -147,13 +147,20 @@ abbr[data-bs-original-title] {
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
-
+.form-group span{
+color:red;
+padding:10px;
+text-align: center;
+}
 address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
 }
-
+.card-body h4{
+    color:#FFFAFA;
+    text-align: center;
+}
 ol,
 ul {
   padding-left: 2rem;
@@ -4522,6 +4529,7 @@ textarea.form-control-lg {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 1rem 1rem;
+  background:linear-gradient(to right,#D3D3D3,#2D3436) ;
 }
 
 .card-title {
@@ -4544,7 +4552,7 @@ textarea.form-control-lg {
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background:linear-gradient(to right,#D3D3D3,#2D3436) ;
   border-bottom: 1px solid #f3f3f3;
 }
 .card-header:first-child {
@@ -19019,15 +19027,15 @@ code {
   text-align: center;
   border: none;
 }
-.sign-inup .ec-brand a img {
-  margin-bottom: 0;
-}
+
 .sign-inup .sign-upp {
   text-align: center;
+  color:#FFFAFA;
 }
 .sign-inup .ec-brand a img {
-  width: 100px;
-  max-width: 100px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .sign-upp {
