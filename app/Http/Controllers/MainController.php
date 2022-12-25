@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 ;
 
@@ -16,7 +16,7 @@ class MainController extends Controller
         return view('auth.register');
     }
     function save(Request $request){
-        
+
         $request->validate([
             'name'=>'required',
             'email'=>'required|email|unique:admins',
@@ -51,6 +51,14 @@ if(!$userInfo){
 }else{
     if(Hash::check($request->password, $userInfo->password)){
         $request->session()->put('loggedUser',$userInfo->id);
+                $credentials = array(
+                    'id' => $userInfo->id,
+                    'name' => $userInfo->name,
+                    'email' => $userInfo->email,
+                    'password' => $request->password,
+                );
+         Auth::shouldUse('admin');
+        Auth::guard('admin')->attempt($credentials);
         return redirect('master');
     }else{
     return back()->with('fail','The password is incorect');
@@ -63,6 +71,7 @@ if(!$userInfo){
         if(session()->has('loggedUser')){
             session()->pull('loggedUser');
         }
+        Auth::guard('admin')->logout();
         return redirect('auth/login');
 
     }

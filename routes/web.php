@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\productGalleryController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +20,19 @@ use App\Http\Controllers\MainController;
 |
 */
 
-
 Route::post('auth/save',[MainController::class,'save'])->name('auth.save');
 Route::post('auth/check',[MainController::class,'check'])->name('auth.check');
+Route::get('auth/logout',[MainController::class,'logout'])->name('auth.logout');
 
 Route::group(['middleware'=>['AuthLogin']],function(){
     Route::get('auth/register',[MainController::class,'register'])->name('auth.register');
     Route::get('auth/login',[MainController::class,'login'])->name('auth.login');
     Route::get('master',[MainController::class,'master'])->name('master');
-    Route::get('/',[MainController::class,'master'])->name('master');
-    Route::resource('/user',UserController ::class);
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/subCategory', SubCategoryController::class);
+    Route::resource('/product', ProductController::class);
+    Route::resource('/productGallery', ProductGalleryController::class);
+
 
 
 
