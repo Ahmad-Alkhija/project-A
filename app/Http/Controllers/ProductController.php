@@ -53,7 +53,7 @@ class ProductController extends Controller
             'productTag'  => 'required',
             'subCategory_id'  => 'required',
             'image_main'  => 'required',
-            'image'  => 'required',
+            'images'  => 'required',
 
 
 
