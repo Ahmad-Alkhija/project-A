@@ -94,7 +94,7 @@
 									</li>
 									<li class="">
 										<a class="sidenav-item-link" href="/subCategory">
-											<span class="nav-text">Sub wCategory</span>
+											<span class="nav-text">Sub Category</span>
 										</a>
 									</li>
 								</ul>
@@ -115,7 +115,7 @@
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link" href="product-list.html">
+										<a class="sidenav-item-link" href="/listProduct">
 											<span class="nav-text">List Product</span>
 										</a>
 									</li>

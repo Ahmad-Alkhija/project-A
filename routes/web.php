@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\productGalleryController;
 
 
@@ -31,6 +32,7 @@ Route::group(['middleware'=>['AuthLogin']],function(){
     Route::resource('/category', CategoryController::class);
     Route::resource('/subCategory', SubCategoryController::class);
     Route::resource('/product', ProductController::class);
+    Route::resource('/listProduct', ListProductController::class);
     Route::resource('/productGallery', ProductGalleryController::class);
 
 
