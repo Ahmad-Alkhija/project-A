@@ -23,13 +23,13 @@
   <link href="{{asset('assets/img/favicon.png')}}" rel="shortcut icon" />
 </head>
 
-<body class="sign-inup" id="body">
+<body class="sign-inup" id="body" >
   <div class="container d-flex align-items-center justify-content-center form-height pt-24px pb-24px">
 
     <div class="row justify-content-center">
       <div class="col-lg-4 col-md-10">
         <div class="card">
-          <div class="card-header bg-primary">
+          <div class="card-header">
 
             <div class="ec-brand">
               <a href="index.html" title="Ekka">
@@ -89,7 +89,7 @@
                     </div>
                   </div>
 
-                  <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
+                  <button type="submit" class="btn login-btn btn-block mb-4">Sign Up</button>
 
                   <p class="sign-upp">Already have an account?
                     <a class="text-blue" href="login">Sign in</a>

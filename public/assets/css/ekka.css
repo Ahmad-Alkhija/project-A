@@ -71,6 +71,9 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.sign-inup{
+    background: #657f8e;
+}
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -4516,7 +4519,9 @@ textarea.form-control-lg {
 .card > .list-group + .card-footer {
   border-top: 0;
 }
-
+.login-btn{
+    background-color: #2c3437;
+}
 .card-body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -4544,8 +4549,11 @@ textarea.form-control-lg {
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #2c3437;
   border-bottom: 1px solid #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
@@ -18953,79 +18961,79 @@ code {
   right: 0;
 }
 
-.sign-inup .container {
+ .container {
   position: relative;
   z-index: 2;
 }
-.sign-inup .form-height {
+ .form-height {
   height: 100vh;
 }
 @media (max-width: 575.98px) {
-  .sign-inup .form-height {
+   .form-height {
     height: 100%;
   }
 }
 @media (max-height: 600px) {
-  .sign-inup .form-height {
+   .form-height {
     height: 100%;
   }
 }
-.sign-inup .form-height-login {
+ .form-height-login {
   height: 100vh;
 }
 @media (max-width: 575.98px) {
-  .sign-inup .form-height-login {
+  .form-height-login {
     height: 100%;
   }
 }
 @media (max-height: 480px) {
-  .sign-inup .form-height-login {
+   .form-height-login {
     height: 100%;
   }
 }
 
 /*===== REGISTRATION =====*/
-.sign-inup .card {
+ .card {
   overflow: hidden;
 }
 @media (max-width: 991.98px) {
-  .sign-inup .card {
+   .card {
     max-width: 430px;
   }
 }
 @media (max-width: 767.98px) {
-  .sign-inup .card .p-5 {
+   .card .p-5 {
     padding: 20px 15px 15px 15px !important;
   }
 }
-.sign-inup .card .ec-brand {
+ .card .ec-brand {
   border: none;
 }
-.sign-inup .card form .control {
+ .card form .control {
   color: #777777;
 }
-.sign-inup .card form button {
+ .card form button {
   width: 130px;
   margin: auto;
 }
-.sign-inup .text-dark {
+ .text-dark {
   text-align: center;
   margin-bottom: 25px !important;
 }
-.sign-inup .ec-brand a {
+ .ec-brand a {
   width: 100%;
   padding: 0;
   display: block;
   text-align: center;
   border: none;
 }
-.sign-inup .ec-brand a img {
+ .ec-brand a img {
   margin-bottom: 0;
 }
-.sign-inup .sign-upp {
+ .sign-upp {
   text-align: center;
 }
-.sign-inup .ec-brand a img {
+ .ec-brand a img {
   width: 100px;
   max-width: 100px;
 }

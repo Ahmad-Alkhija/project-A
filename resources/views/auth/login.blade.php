@@ -27,7 +27,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-10">
 					<div class="card">
-						<div class="card-header bg-primary">
+						<div class="card-header">
 							<div class="ec-brand">
 								<a href="index.html" title="Ekka">
 									<img class="ec-brand-icon" src="assets/img/logo/logo-login.png" alt="" />
@@ -67,7 +67,7 @@
 											<p><a class="text-blue" href="#">Forgot Password?</a></p>
 										</div>
 
-										<button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
+										<button type="submit" class="btn login-btn btn-block mb-4">Sign In</button>
 
 										<p class="sign-upp">Don't have an account yet ?
 											<a class="text-blue" href="register">Sign Up</a>
