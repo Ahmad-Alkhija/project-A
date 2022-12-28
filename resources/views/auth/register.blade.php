@@ -92,7 +92,7 @@
                   <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
 
                   <p class="sign-upp">Already have an account?
-                    <a class="text-blue" href="sign-in.html">Sign in</a>
+                    <a class="text-blue" href="login">Sign in</a>
                   </p>
                 </div>
               </div>
