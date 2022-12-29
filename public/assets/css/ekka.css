@@ -70,7 +70,15 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+.card-header{
+    background-color:silver;
+}
+.card-body{
+    background-color: #2c3437;
+}
+.content{
+    background-color: #242c2f;
+}
 .sign-inup{
     background: #657f8e;
 }
@@ -20403,7 +20411,7 @@ div.copied {
   line-height: 30px;
 }
 .navbar .dropdown-menu {
-  width: 255px;
+  width: 285px;
   padding: 0 0 0 0;
   margin: 0;
   top: 100%;
