@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string("slug");
             $table->string("sortDescription");
             $table->json("color");
+            $table->json("size");
             $table->integer("price");
             $table->integer("quantity");
             $table->string("fulDetail");

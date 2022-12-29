@@ -213,30 +213,82 @@
                                         title="Choose your color">
                                 </div>
                                 <div class="col-md-8 mb-25">
-                                    <label class="form-label">Size</label>
+                                    <label class="form-label">Size USA</label>
+                                    <input type="hidden" name="size[]" value="Size USA">
                                     <div class="form-checkbox-box">
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size1" value="size">
+                                            <input type="checkbox" name="size[]" value="S">
                                             <label>S</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size1" value="size">
+                                            <input type="checkbox" name="size[]" value="M">
                                             <label>M</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size1" value="size">
+                                            <input type="checkbox" name="size[]" value="L">
                                             <label>L</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size1" value="size">
+                                            <input type="checkbox" name="size[]" value="XL">
                                             <label>XL</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size1" value="size">
+                                            <input type="checkbox" name="size[]" value="XXL">
                                             <label>XXL</label>
                                         </div>
                                     </div>
+                                    <label class="form-label">Size Number</label>
+
+                                    <input name="size[]" type="text" class="size form-control " id="size" class="size">
+                                    <div id="moreSize">
+
+                                    </div>
+                               <div class="btnSize row">
+                                    <button  type="button" id="addMoreSize" class="btn btn-primary col-6">ADD MORE</button>
+
+                                    <button type='button' id='showLessSize' class='btn btn-danger col-6 d-none'>Show Less</button>
                                 </div>
+
+
+
+                                <label class="form-label">Size Europe</label>
+                                <input type="hidden" name="size[]" value="Size Europe">
+                                <div class="form-checkbox-box">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="size[]" value="S">
+                                        <label>S</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="size[]" value="M">
+                                        <label>M</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="size[]" value="L">
+                                        <label>L</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="size[]" value="XL">
+                                        <label>XL</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="size[]" value="XXL">
+                                        <label>XXL</label>
+                                    </div>
+                                </div>
+                                <label class="form-label">Size Number</label>
+
+                                <input name="size[]" type="text" class="size form-control " id="size" class="size">
+                                <div id="moreSizeE">
+
+                                </div>
+                           <div class="btnSizeE row">
+                                <button  type="button" id="addMoreSizeE" class="btn btn-primary col-6">ADD MORE</button>
+
+                                <button type='button' id='showLessSizeE' class='btn btn-danger col-6 d-none'>Show Less</button>
+                            </div>
+
+                                </div>
+
                                 <div class="col-md-6">
                                     <label class="form-label">Price <span>( In USD
                                             )</span></label>
@@ -305,10 +357,47 @@ headers: {
   }
 });
 });
-function submitForm() {
-            document.contact-form.submit();
-            document.contact-form.reset();
-            }
+
 //////////////////////////////end of adding in ajax///////////////////////////
+
+var counter_size=0
+$("#addMoreSize").click(function(e){
+e.preventDefault();
+counter_size++;
+$('#moreSize').append("<input name='size[]' type='text' class='size form-control' id='size"+counter_size+"' class='size'>")
+if(counter_size==1){
+$( "#showLessSize" ).removeClass( "d-none" );
+}
+});
+$("#showLessSize").click(function(e){
+e.preventDefault();
+$("#size"+counter_size).remove();
+counter_size--;
+if(counter_size==0){
+$( "#showLessSize" ).addClass( "d-none" )
+}
+});
+
+
+/////////////////////////////////////////////////////////////
+var counter_sizeE=0
+$("#addMoreSizeE").click(function(e){
+e.preventDefault();
+counter_sizeE++;
+$('#moreSizeE').append("<input name='size[]' type='text' class='size form-control' id='size"+counter_sizeE+"' class='size'>")
+if(counter_sizeE==1){
+$( "#showLessSizeE" ).removeClass( "d-none" );
+}
+});
+$("#showLessSizeE").click(function(e){
+e.preventDefault();
+$("#size"+counter_sizeE).remove();
+counter_sizeE--;
+if(counter_sizeE==0){
+$( "#showLessSizeE" ).addClass( "d-none" )
+}
+});
+
+
 </script>
 @stop

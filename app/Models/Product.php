@@ -13,6 +13,8 @@ class Product extends Model
 
     protected $casts = [
     'color' => 'array',
+    'size' => 'array',
+
     ];
     public function SubCategory(){
         return $this->belongsTo(SubCategory::class,'subCategory_id');

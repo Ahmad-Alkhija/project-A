@@ -70,6 +70,7 @@ class ProductController extends Controller
                 $product->name=$request->name;
                 $product->slug=$request->slug;
                 $product->color=$request->color;
+                $product->size=$request->size;
                 $product->price=$request->price;
                 $product->quantity=$request->quantity;
                 $product->sortDescription=$request->sortDescription;
