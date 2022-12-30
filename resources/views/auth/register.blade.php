@@ -49,7 +49,7 @@
                 {{ Session::get('fail') }}
             </div>
             @endif
-            <h4 class="text-dark mb-5">Sign Up</h4>
+            <h4 class="mb-5" style="color:white; text-align:center;">Sign Up</h4>
 
             <form action="{{route('auth.save')}}" method="post">
                 @csrf
