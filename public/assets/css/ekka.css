@@ -4528,7 +4528,9 @@ textarea.form-control-lg {
   border-top: 0;
 }
 .login-btn{
-    background-color: #2c3437;
+    background-color: black;
+    color:white;
+    border-color: silver;
 }
 .card-body {
   -webkit-box-flex: 1;
