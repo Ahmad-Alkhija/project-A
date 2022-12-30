@@ -217,23 +217,23 @@
                                     <input type="hidden" name="size[]" value="Size USA">
                                     <div class="form-checkbox-box">
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size[]" value="S">
+                                            <input type="checkbox" class="size" name="size[]" value="S">
                                             <label>S</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size[]" value="M">
+                                            <input type="checkbox" name="size[]" value="M" class="size">
                                             <label>M</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size[]" value="L">
+                                            <input  class="size" type="checkbox" name="size[]" value="L">
                                             <label>L</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size[]" value="XL">
+                                            <input type="checkbox" class="size" name="size[]" value="XL">
                                             <label>XL</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input type="checkbox" name="size[]" value="XXL">
+                                            <input type="checkbox" class="size" name="size[]" value="XXL">
                                             <label>XXL</label>
                                         </div>
                                     </div>
@@ -255,23 +255,23 @@
                                 <input type="hidden" name="size[]" value="Size Europe">
                                 <div class="form-checkbox-box">
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="size[]" value="S">
+                                        <input type="checkbox" name="size[]" class="size" value="S">
                                         <label>S</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="size[]" value="M">
+                                        <input type="checkbox" name="size[]" class="size" value="M">
                                         <label>M</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="size[]" value="L">
+                                        <input type="checkbox" name="size[]" class="size" value="L">
                                         <label>L</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="size[]" value="XL">
+                                        <input type="checkbox" name="size[]" class="size" value="XL">
                                         <label>XL</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="size[]" value="XXL">
+                                        <input type="checkbox" name="size[]" class="size" value="XXL">
                                         <label>XXL</label>
                                     </div>
                                 </div>

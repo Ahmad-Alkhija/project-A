@@ -101,8 +101,10 @@ var i=0;
 
         function deleteProductInput(data) {
             $.each( data[0], function( key,value) {
-            console.log(key);
             $('.'+key).val("");
+            if(key=="size"){
+            $('.'+key).prop('checked', false);
+            }
             if(key=="image"){
             jQuery('.image_main').attr('src', 'assets/img/products/vender-upload-preview.jpg');
             jQuery('.image').attr('src', 'assets/img/products/vender-upload-thumb-preview.jpg');
@@ -113,6 +115,18 @@ var i=0;
     });
             }
             });
+            for(i=counter_size;i!=0;i--){
+            $("#size"+i).remove();
+            if(i==1){
+            $( "#showLessSize").addClass("d-none");
+            }
+    }
+    for(i=counter_sizeE;i!=0;i--){
+            $("#size"+i).remove();
+            if(i==1){
+            $("#showLessSizeE").addClass("d-none")
+    }
+}
         }
 
 
