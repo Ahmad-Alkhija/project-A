@@ -67,6 +67,22 @@ $(document).ready(function () {
     });
   }
 
+  $(".simplebar-content").on('click','li',function(){
+
+    $(".simplebar-content li.active").removeClass("active");
+
+    $(this).addClass("active");
+
+});
+
+$(".simplebar-content").on('click','li',function(){
+
+    $(".simplebar-content li.expand").removeClass("expand");
+
+    $(this).addClass("expand");
+
+});
+
   // Store object for local storage data
   var activeModule = {
     headerType: "ec-header-fixed",
