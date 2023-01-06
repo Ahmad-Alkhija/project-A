@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+category
+@stop
 @section('content')
 <div class="breadcrumb-wrapper breadcrumb-wrapper-2 breadcrumb-contacts">
     <h1>Main Category</h1>

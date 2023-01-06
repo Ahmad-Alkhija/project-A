@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\ProductGallery;
+use App\Models\SubCategory;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+
 
 class ListProductController extends Controller
 {
@@ -14,7 +19,8 @@ class ListProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('cms.listProduct', compact('products'));
+        $subCategories=SubCategory::with('Category')->get();
+        return view('cms.listProduct', compact('products','subCategories'));
     }
     /**
      * Show the form for creating a new resource.
@@ -56,7 +62,10 @@ class ListProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product=Product::find($id);
+        $productGallery=ProductGallery::where('product_id',$id)->get();
+        $couluction=collect([$product,$productGallery]);
+        return ($couluction);
     }
 
     /**
@@ -68,7 +77,71 @@ class ListProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name'  => 'required',
+            'slug'  => 'required',
+            'color'  => 'required',
+            'price'  => 'required',
+            'quantity'  => 'required',
+            'sortDescription'  => 'required',
+            'fulDetail'  => 'required',
+            'productTag'  => 'required',
+            'subCategory_id'  => 'required',
+        ]);
+
+
+            if ($validator->fails())
+            {
+                return response()->json(['error'=>$validator->errors()]);
+            }
+            else
+            {
+       ;
+                $product=Product::find($id);
+                $product->name=$request->name;
+                $product->slug=$request->slug;
+                $product->color=$request->color;
+                $product->size=$request->size;
+                $product->price=$request->price;
+                $product->quantity=$request->quantity;
+                $product->sortDescription=$request->sortDescription;
+                $product->fulDetail=$request->fulDetail;
+                $product->productTag=$request->productTag;
+                $product->subCategory_id=$request->subCategory_id;
+            if ($request->image_main != null) {
+                $image_path = 'images/'.$product->image;
+                if(File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+                $file = $request->image_main;
+                $fileName2 = 'img_' . time() . '.' . $request->image_main->extension();
+                $destinationPath = public_path() . '/images';
+                $file->move($destinationPath, $fileName2);
+                $product->image = $fileName2;
+            }
+                $product->update();
+
+            $count=0;
+                foreach($request->images as $key=>$image){
+                if ($key % 2 != 0&&$key!=null) {
+
+                    $productGallery = ProductGallery::find($request->images[$key-1]);
+                    $image_path = 'images/'.$productGallery->image;
+                    if(File::exists($image_path)) {
+                        File::delete($image_path);
+                    }
+                    $fileName2 = 'img_' . time() . '.' . $count . '.' . $image->extension();
+                    $destinationPath = public_path() . '/images';
+                    $image->move($destinationPath, $fileName2);
+                    $productGallery->image = $fileName2;
+                    $productGallery->update();
+                    $count++;
+
+                }
+                     }
+
+                return $product;
+            }
     }
 
     /**
@@ -79,6 +152,13 @@ class ListProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        $oldproduct=$product;
+        $image_path = 'images/'.$product->image;
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $product->delete();
+        return  $oldproduct;
     }
 }

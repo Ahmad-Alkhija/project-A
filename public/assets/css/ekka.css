@@ -24947,3 +24947,7 @@ div.dataTables_wrapper div.dataTables_filter {
   border-radius: 15px;
 }
 /*# sourceMappingURL=ekka.css.map */
+.modal-dialog
+{
+    max-width: 800px !important;
+}

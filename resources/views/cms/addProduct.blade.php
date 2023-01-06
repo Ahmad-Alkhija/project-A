@@ -162,6 +162,7 @@
                                     <label for="inputEmail4" class="form-label">Product name</label>
                                     <input name="name" type="text" class="name form-control slug-title" id="inputEmail4">
                                 </div>
+                                <span class="text-danger error-text name_err"></span>
                                 <div class="col-md-6">
                                     <label class="form-label">Select Categories</label>
                                     <select name="subCategory_id" id="Categories" class="subCategory_id form-select">
@@ -238,7 +239,7 @@
                                         </div>
                                     </div>
                                     <label class="form-label">Size Number</label>
-
+                                    <input type="hidden" name="size[]" value="Size Number">
                                     <input name="size[]" type="text" class="size form-control " id="size" class="size">
                                     <div id="moreSize">
 
@@ -276,6 +277,7 @@
                                     </div>
                                 </div>
                                 <label class="form-label">Size Number</label>
+                                <input type="hidden" name="size[]" value="Size Number">
 
                                 <input name="size[]" type="text" class="size form-control " id="size" class="size">
                                 <div id="moreSizeE">

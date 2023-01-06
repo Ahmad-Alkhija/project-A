@@ -14,7 +14,7 @@
 					<!-- sidebar menu -->
 					<ul class="nav sidebar-inner" id="sidebar-menu">
 						<!-- Dashboard -->
-						<li>
+						<li class="{{Request::route()->getName()==('master') ? 'active' : "" }}">
 							<a class="sidenav-item-link" href="index.html">
 								<i class="mdi mdi-view-dashboard-outline"></i>
 								<span class="nav-text">Dashboard</span>
@@ -80,19 +80,19 @@
 						</li>
 
 						<!-- Category -->
-						<li class="has-sub active expand">
+						<li class="has-sub {{Request::route()->getName()==('category.index')||Request::route()->getName()==('subCategory.index') ? 'active expand' : "" }} ">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-dns-outline"></i>
 								<span class="nav-text">Categories</span> <b class="caret"></b>
 							</a>
-							<div class="collapse show">
+							<div class="collapse {{Request::route()->getName()==('category.index')||Request::route()->getName()==('subCategory.index') ? 'show' : "" }}">
 								<ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
-									<li class="active">
+									<li class="{{Request::route()->getName()==('category.index')? 'active' : "" }}">
 										<a class="sidenav-item-link" href="/category">
 											<span class="nav-text">Main Category</span>
 										</a>
 									</li>
-									<li class="">
+									<li class="{{Request::route()->getName()==('subCategory.index')? 'active' : "" }}">
 										<a class="sidenav-item-link" href="/subCategory">
 											<span class="nav-text">Sub Category</span>
 										</a>
@@ -102,20 +102,20 @@
 						</li>
 
 						<!-- Products -->
-						<li class="has-sub">
+						<li class="has-sub {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index') ? 'active expand' : "" }}">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-palette-advanced"></i>
 								<span class="nav-text">Products</span> <b class="caret"></b>
 							</a>
-							<div class="collapse">
+							<div class="collapse {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index') ? 'show' : "" }}">
 								<ul class="sub-menu" id="products" data-parent="#sidebar-menu">
-									<li class="">
-										<a class="sidenav-item-link" href="/product">
+									<li class="{{Request::route()->getName()==('product.index') ? 'active' : "" }}">
+										<a class="sidenav-item-link" href="product">
 											<span class="nav-text">Add Product</span>
 										</a>
 									</li>
-									<li class="">
-										<a class="sidenav-item-link" href="/listProduct">
+									<li class="{{Request::route()->getName()==('listProduct.index') ? 'active ' : "" }}">
+										<a class="sidenav-item-link" href="listProduct">
 											<span class="nav-text">List Product</span>
 										</a>
 									</li>

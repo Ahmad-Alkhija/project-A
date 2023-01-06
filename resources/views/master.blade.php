@@ -11,7 +11,9 @@
 	<meta name="description" content="Ekka - Admin Dashboard HTML Template.">
     @include('include.linkCss')
     @yield('css')
-    <title>@yield('title') </title>
+    <title>@yield('title')
+
+    </title>
 </head>
 <body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-dark ec-header-light" id="body">
 
