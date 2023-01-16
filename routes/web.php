@@ -7,6 +7,12 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\productGalleryController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\CategoryUserController;
+use App\Http\Controllers\CardController;
+
+
+
 
 
 
@@ -20,6 +26,13 @@ use App\Http\Controllers\productGalleryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('masterUser');
+});
+Route::resource('/categoryUser', CategoryUserController::class);
+Route::resource('/card', CardController::class);
+
+
 
 Route::post('auth/save',[MainController::class,'save'])->name('auth.save');
 Route::post('auth/check',[MainController::class,'check'])->name('auth.check');
@@ -34,8 +47,5 @@ Route::group(['middleware'=>['AuthLogin']],function(){
     Route::resource('/product', ProductController::class);
     Route::resource('/listProduct', ListProductController::class);
     Route::resource('/productGallery', ProductGalleryController::class);
-
-
-
-
+    Route::resource('/offer', OfferController::class);
 });

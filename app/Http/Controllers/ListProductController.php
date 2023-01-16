@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Offer;
 use App\Models\Product;
 use App\Models\ProductGallery;
 use App\Models\SubCategory;
@@ -18,7 +20,7 @@ class ListProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('offer')->get();
         $subCategories=SubCategory::with('Category')->get();
         return view('cms.listProduct', compact('products','subCategories'));
     }
@@ -96,7 +98,7 @@ class ListProductController extends Controller
             }
             else
             {
-       ;
+
                 $product=Product::find($id);
                 $product->name=$request->name;
                 $product->slug=$request->slug;
@@ -139,6 +141,17 @@ class ListProductController extends Controller
 
                 }
                      }
+
+
+            $offer = Offer::find($id);
+            if($offer!=null){
+
+            $offer->oldPrice = $product->price;
+            $offer->newPrice =(100-$offer->offer)*$product->price/100;
+            $offer->update();
+
+
+            }
 
                 return $product;
             }

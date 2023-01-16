@@ -102,12 +102,12 @@
 						</li>
 
 						<!-- Products -->
-						<li class="has-sub {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index') ? 'active expand' : "" }}">
+						<li class="has-sub {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index')||Request::route()->getName()==('offer.index') ? 'active expand' : "" }}">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-palette-advanced"></i>
 								<span class="nav-text">Products</span> <b class="caret"></b>
 							</a>
-							<div class="collapse {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index') ? 'show' : "" }}">
+							<div class="collapse {{Request::route()->getName()==('product.index')||Request::route()->getName()==('listProduct.index')||Request::route()->getName()==('offer.index') ? 'show' : "" }}">
 								<ul class="sub-menu" id="products" data-parent="#sidebar-menu">
 									<li class="{{Request::route()->getName()==('product.index') ? 'active' : "" }}">
 										<a class="sidenav-item-link" href="product">
@@ -119,6 +119,13 @@
 											<span class="nav-text">List Product</span>
 										</a>
 									</li>
+
+                                    <li class="{{Request::route()->getName()==('offer.index') ? 'active ' : "" }}">
+										<a class="sidenav-item-link" href="offer">
+											<span class="nav-text">List Offer</span>
+										</a>
+									</li>
+
 									<li class="">
 										<a class="sidenav-item-link" href="product-grid.html">
 											<span class="nav-text">Grid Product</span>

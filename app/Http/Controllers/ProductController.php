@@ -6,6 +6,10 @@ use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductGallery;
+use App\Models\Offer;
+use DateTime;
+// use Carbon\Carbon;
+use Carbon;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -55,8 +59,6 @@ class ProductController extends Controller
             'image_main'  => 'required',
             'images'  => 'required',
 
-
-
         ]);
 
 
@@ -96,6 +98,18 @@ class ProductController extends Controller
                     $productGallery->save();
                     $count++;
                      }
+if($request->offer!=null){
+    $offer= new Offer();
+    $offer->product_id=$product->id;
+    $date2_start = Carbon\Carbon::now();
+$offer->startDate = $date2_start->toDateString();
+$offer->endDate=$request->endDate;
+$offer->offer = $request->offer;
+$offer->oldPrice = $product->price;
+$offer->newPrice =(100-$request->offer)*$product->price/100;
+$offer->save();
+}
+
                      $couluction=collect([$product,$productGallery]);
                 return ($couluction);
             }

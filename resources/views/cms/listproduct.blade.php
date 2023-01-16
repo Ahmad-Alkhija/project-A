@@ -38,7 +38,12 @@
                                 <td ><img id="image{{$product->id}}" class="tbl-thumb" src="images/{{$product->image}}" alt="Product Image" /></td>
                                 <td id="name{{$product->id}}">{{$product->name}}</td>
                                 <td id="price{{$product->id}}">{{$product->price}}$</td>
-                                <td>25% OFF</td>
+@if(!isset($product->offer->offer))
+<td id="offer"><button  type="button" id="addoffer" value="{{$product->id}}" class="btn btn-outline-success btn-sm col-7">ADD OFFER</button></td>
+@else
+                                <td>{{$product->offer->offer}}%</td>
+                                @endif
+
                                 <td>61</td>
                                 <td id="quantity{{$product->id}}">{{$product->quantity}}</td>
                                 <td>ACTIVE</td>
@@ -448,9 +453,95 @@
         </div>
       </div>
 
+
+      {{--  --}}
+{{--              The edit Modal                  --}}
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form class="form" id="adding_form">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Edit Modal</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="ec-cat-form">
+                @csrf
+                <div class="offer_info row">
+                    <div class="col-md-6">
+                        <input type="hidden" id="product_id" value="" name="product_id">
+                        <label class="form-label">Product Offer<span> (The offer input from 100% )</span></label>
+                        <input  type="number" class="offer form-control"
+                            name="offer"
+                           />
+                            <span class="text-danger error-text offer_err"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Product Offer endDate</label>
+                        <input  type="date" class="offer form-control"
+                            name="endDate"
+                           />
+                            <span class="text-danger error-text endDate_err"></span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
 @stop
 @section('js')
 <script>
+
+
+
+
+//adding ajax offer//////////
+$("#adding_form").submit(function(e){
+e.preventDefault()
+var formValues = new FormData($(this)[0])
+deleteErrorMsg();
+$.ajax({
+headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+},
+ url:"/offer",
+ type:"POST",
+ data:formValues,
+ cache: false,
+ processData: false,
+ contentType: false,
+  success:function(data){
+    if($.isEmptyObject(data.error)){
+                      console.log(data);
+                      $('.offer').val(" ");
+                      $('#addModal').modal('toggle');
+                      $("#offer").html(data.offer+"%")
+                      alertSucces( 'success','The data is added sucessfully.');
+
+                  }else{
+                      printErrorMsg(data.error);
+                  }
+  }
+});
+});
+
+
+$(document).on('click','#addoffer',function(e){
+    gProduct_id=$(this).val();
+    $('#addModal').modal('toggle');
+    $('#product_id').val(gProduct_id);
+
+});
 
 var listProduct_id
 var counter_size_edit=0

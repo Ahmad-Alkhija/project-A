@@ -30,9 +30,9 @@
                             <!-- User image -->
                             <li class="dropdown-header">
                                 <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
-                                <div class="d-inline-block">
+                                {{-- <div class="d-inline-block">
                                    {{Auth::guard('admin')->user()->name}}<small class="pt-1">{{Auth::guard('admin')->user()->email}}</small>
-                                </div>
+                                </div> --}}
                             </li>
                             <li>
                                 <a href="user-profile.html">

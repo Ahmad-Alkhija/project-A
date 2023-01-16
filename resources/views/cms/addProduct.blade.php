@@ -315,6 +315,27 @@
                                         data-role="tagsinput"/>
                                         <span class="text-danger error-text productTag_err"></span>
                                 </div>
+
+                                <div class="offer_info d-none row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Product Offer<span> (The offer input from 100% )</span></label>
+                                    <input  type="number" class="offer form-control"
+                                        name="offer"
+                                       />
+                                        <span class="text-danger error-text offer_err"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Product Offer endDate</label>
+                                    <input  type="date" class="offer form-control"
+                                        name="endDate"
+                                       />
+                                        <span class="text-danger error-text endDate_err"></span>
+                                </div>
+                            </div>
+                            <button  type="button" id="addoffer" class="btn btn-primary col-12">ADD OFFER</button>
+                            <button  type="button" id="removeoffer" class="btn btn-danger col-12 d-none">REMOVE OFFER</button>
+
+
                                 <div class="col-md-12">
                                     <button type="submit"  class="btn btn-primary">Submit</button>
                                 </div>
@@ -352,6 +373,11 @@ headers: {
     if($.isEmptyObject(data.error)){
                       console.log(data);
                       deleteProductInput(data);
+$('.offer').val("")
+$( ".offer_info" ).addClass( "d-none" );
+$( "#removeoffer" ).addClass( "d-none" );
+$( "#addoffer" ).removeClass( "d-none" );
+
                       alertSucces( 'success','The data is added sucessfully.');
                   }else{
                       printErrorMsg(data.error);
@@ -400,6 +426,19 @@ $( "#showLessSizeE" ).addClass( "d-none" )
 }
 });
 
+//////offer add/////
+$("#addoffer").click(function(e){
+$( ".offer_info" ).removeClass( "d-none" );
+$( "#removeoffer" ).removeClass( "d-none" );
+$( "#addoffer" ).addClass( "d-none" );
 
+});
+$("#removeoffer").click(function(e){
+$('.offer').val("")
+$( ".offer_info" ).addClass( "d-none" );
+$( "#removeoffer" ).addClass( "d-none" );
+$( "#addoffer" ).removeClass( "d-none" );
+
+});
 </script>
 @stop
