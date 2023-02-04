@@ -1,8 +1,11 @@
 @extends('masterUser')
+@section('class')
+shop_page
+@stop
 @section('content')
+
   <!-- Ec breadcrumb start -->
-
-
+  <div class="ec-side-cart-overlay"></div>
   <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
     <div class="container">
         <div class="row">
@@ -60,8 +63,10 @@
                 <section class="ec-page-content section-space-p">
                 <div class="shop-pro-content">
                     <div class="shop-pro-inner">
-                        <div class="row">
-                @include('includeUser.card');
+                        <div class="row cardL">
+                @include('includeUser.card',[
+                    'reloadPage'=>0,
+                ]);
                         </div>
                     </div>
                     <!-- Ec Pagination Start -->
@@ -81,12 +86,15 @@
                 <!--Shop content End -->
             </div>
             <!-- Sidebar Area Start -->
+
             <div class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
                 <div id="shop_sidebar">
                     <div class="ec-sidebar-heading">
                         <h1>Filter Products By</h1>
                     </div>
                     <div class="ec-sidebar-wrap">
+                        <form id="fluter">
+                            @csrf
                         <!-- Sidebar Category Block -->
                         <div class="ec-sidebar-block">
                             <div class="ec-sb-title">
@@ -94,43 +102,27 @@
                             </div>
                             <div class="ec-sb-block-content">
                                 <ul>
+
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" checked /> <a href="#">clothes</a><span
+                                            <input type="checkbox" checked /> <a href="#">ALL</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
+                                    @foreach($categorys as $category)
                                     <li>
+
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" /> <a href="#">Bags</a><span
+
+                                            <input type="checkbox" class="filtering_change" name="category[]" value="{{$category->id}}"/><a>{{$category->name}}</a><span
                                                 class="checked"></span>
+
                                         </div>
+
                                     </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" /> <a href="#">Shoes</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" /> <a href="#">cosmetics</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" /> <a href="#">electrics</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" /> <a href="#">phone</a><span
-                                                class="checked"></span>
-                                        </div>
-                                    </li>
-                                    <li id="ec-more-toggle-content" style="padding: 0; display: none;">
+                                    @endforeach
+
+                                    {{-- <li id="ec-more-toggle-content" style="padding: 0; display: none;">
                                         <ul>
                                             <li>
                                                 <div class="ec-sidebar-block-item">
@@ -151,12 +143,12 @@
                                             <span class="checked"></span><span id="ec-more-toggle">More
                                                 Categories</span>
                                         </div>
-                                    </li>
+                                    </li> --}}
 
                                 </ul>
                             </div>
                         </div>
-                        <!-- Sidebar Size Block -->
+                        {{-- <!-- Sidebar Size Block -->
                         <div class="ec-sidebar-block">
                             <div class="ec-sb-title">
                                 <h3 class="ec-sidebar-title">Size</h3>
@@ -165,38 +157,121 @@
                                 <ul>
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" checked /><a href="#">S</a><span
+                                            <input name="size[]"class="filtering_change"  type="checkbox" value='S'  /><a href="#">S</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">M</a><span
+                                            <input name="size[]"class="filtering_change" type="checkbox" value="M" /><a href="#">M</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /> <a href="#">L</a><span
+                                            <input name="size[]"class="filtering_change" type="checkbox" value="L" /> <a href="#">L</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">XL</a><span
+                                            <input name="size[]"class="filtering_change" type="checkbox" value="XL" /><a href="#">XL</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="ec-sidebar-block-item">
-                                            <input type="checkbox" value="" /><a href="#">XXL</a><span
+                                            <input name="size[]"class="filtering_change" type="checkbox" value="XXL" /><a href="#">XXL</a><span
                                                 class="checked"></span>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <!-- Sidebar Color item -->
+                        </div> --}}
+
+
+ <!-- Sidebar Sale type Block -->
+ <div class="ec-sidebar-block">
+    <div class="ec-sb-title">
+        <h3 class="ec-sidebar-title">Gnder</h3>
+    </div>
+    <div class="ec-sb-block-content">
+        <ul>
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="gender[]"class="filtering_change"  type="checkbox" value='men'  /><a href="#">Men</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="gender[]"class="filtering_change" type="checkbox" value="women" /><a href="#">Wonen</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="gender[]"class="filtering_change" type="checkbox" value="boy" /> <a href="#">boy(Kid)</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+
+
+
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="gender[]"class="filtering_change" type="checkbox" value="girl"/> <a href="#">girl(Kid)</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+ <!-- Sidebar Sale type Block -->
+ <div class="ec-sidebar-block">
+    <div class="ec-sb-title">
+        <h3 class="ec-sidebar-title">Sale Type</h3>
+    </div>
+    <div class="ec-sb-block-content">
+        <ul>
+
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="saleType[]"class="filtering_change"  type="checkbox" value='WholeSale'  /><a href="#">Whole Sale</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="saleType[]"class="filtering_change" type="checkbox" value="RetailSale" /><a href="#">Retail Sale</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+            <li>
+                <div class="ec-sidebar-block-item">
+                    <input name="saleType[]"class="filtering_change" type="checkbox" value="RetailSale&WholeSale" /> <a href="#">Whole and Retail Sale</a><span
+                        class="checked"></span>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+                        {{-- <!-- Sidebar Color item -->
                         <div class="ec-sidebar-block ec-sidebar-block-clr">
                             <div class="ec-sb-title">
                                 <h3 class="ec-sidebar-title">Color</h3>
@@ -245,32 +320,176 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Sidebar Price Block -->
                         <div class="ec-sidebar-block">
                             <div class="ec-sb-title">
                                 <h3 class="ec-sidebar-title">Price</h3>
                             </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                        data-max="250" data-step="10"></div>
+                            <div class="ec-sb-block-content es-price-slider ">
+                                <div class="ec-price-filter filtering_click">
+                                    <div id="ec-sliderPrice" class="filter__slider-price " data-min="0"
+                                        data-max="{{$priceMax}}" data-step="10"></div>
                                     <div class="ec-price-input">
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input"></label>
+                                        <label class="filter__label"><input type="number" name="priceMin"
+                                                class="filter__input filtering_input "></label>
                                         <span class="ec-price-divider"></span>
-                                        <label class="filter__label"><input type="text"
-                                                class="filter__input"></label>
+                                        <label class="filter__label"><input type="number" name="priceMax"
+                                                class="filter__input filtering_input "></label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </section>
 
+@stop
+@section('js')
+<script>
+//   $('.edit').click(function() {
+// var formValues = new FormData($('#fluter')[0])
+// console.log(formValues)
+
+//     $.ajax({
+//         headers: {
+//   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+// },
+//   url:"/categoryUser",
+//   type:"POST",
+//   data:formValues,
+//   cache: false,
+//   processData: false,
+//   contentType: false,
+//       success:function(data){
+//         console.log(data);
+//       }
+//     });
+//     })
+
+$(document).on('change','.filtering_change',function(e){
+e.preventDefault();
+   var formValues = new FormData($('#fluter')[0])
+   console.log(1);
+
+$.ajax({
+headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+},
+ url:"/categoryUser",
+ type:"POST",
+ data:formValues,
+ cache: false,
+ processData: false,
+ contentType: false,
+  success:function(data){
+    $('.cardL').html(data)
+    console.log(data)
+
+  }
+});
+});
+
+
+
+$(document).on('click','.filtering_click',function(e){
+e.preventDefault();
+   var formValues = new FormData($('#fluter')[0])
+   console.log(1);
+
+$.ajax({
+headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+},
+ url:"/categoryUser",
+ type:"POST",
+ data:formValues,
+ cache: false,
+ processData: false,
+ contentType: false,
+  success:function(data){
+    $('.cardL').html(data)
+    console.log(data)
+
+  }
+});
+});
+
+
+
+
+$(document).on('input','.filtering_input',function(e){
+e.preventDefault();
+   var formValues = new FormData($('#fluter')[0])
+   console.log(1);
+
+$.ajax({
+headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+},
+ url:"/categoryUser",
+ type:"POST",
+ data:formValues,
+ cache: false,
+ processData: false,
+ contentType: false,
+  success:function(data){
+    $('.cardL').html(data)
+    console.log(data)
+
+  }
+});
+});
+
+$(document).on('click','.quickview',function(e){
+categoryUser_id=$(this).attr("href");
+$.ajax({
+  type:"GET",
+  url:'/categoryUser/'+categoryUser_id,
+  success:function(data){
+console.log(data);
+
+
+jQuery('.img-responsive').attr('src', "images/"+data.image+"");
+$('.nameP').html(data.name);
+if(data.offer==null){
+    $('.price-modal').html(data.price);
+    $('.old-price-modal').html('');
+
+}else{
+    $('.old-price-modal').html(data.offer.oldPrice);
+    $('.new-price-modal').html(data.offer.newPrice);
+
+
+}
+$('.sortD').html(data.sortDescription);
+console.log(data.color)
+
+data.color.forEach(function (color) {
+
+
+    $('.color-modal').append('<li class="colorMM" ><span class="colorMM" style="background-color:'+color+';"></span></li>')
+
+ })
+
+
+
+
+
+
+  }
+});
+});
+$("#ec_quickview_modal").on('hide.bs.modal', function(){
+    $('.colorMM').remove()
+});
+
+
+</script>
 
 @stop

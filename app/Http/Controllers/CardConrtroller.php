@@ -14,7 +14,7 @@ class CardConrtroller extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('includeUser.card', );
+        return view('includeUser.card',compact('products'));
     }
 
     /**

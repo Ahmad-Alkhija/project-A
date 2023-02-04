@@ -22948,19 +22948,19 @@ select::-ms-expand {
   outline: none;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input::-webkit-input-placeholder {
-  color: #ddd !important !important;
+  color: #ddd !important !important ;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input::-moz-placeholder {
-  color: #ddd !important !important;
+  color: #ddd !important !important ;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input:-ms-input-placeholder {
-  color: #ddd !important !important;
+  color: #ddd !important !important ;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input::-ms-input-placeholder {
   color: #ddd !important !important;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form input::placeholder {
-  color: #ddd !important !important;
+  color: #ddd !important !important ;
 }
 .ec-register-wrapper .ec-register-container .ec-register-form .ec-register-fp label {
   margin-bottom: 0;
@@ -31036,7 +31036,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 
 /** Comingsoon 2 page **/
 .ec-coming-soon-02 {
-  background: url("../../assets/images/common/1.jpg");
+  background: url("../../assetsUser/images/common/1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32229,7 +32229,7 @@ input[type=email]:focus::-webkit-input-placeholder {
    vendor Page CSS
    	- Single Vendor
    	- Multi Vendor
-   	- Vendor Sidebar 
+   	- Vendor Sidebar
    	- Vendor Dashboard
    	- Vendor Upload
    	- Vendor Profile

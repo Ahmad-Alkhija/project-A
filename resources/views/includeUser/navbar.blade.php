@@ -57,7 +57,7 @@
                             <!-- Header User Start -->
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown"><img
-                                        src="assetsUser/images/icons/user.svg" class="svg_img header_svg" alt="" /></button>
+                                        src="{{asset('assetsUser/images/icons/user.svg')}}" class="svg_img header_svg" alt="" /></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="register.html">Register</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
@@ -67,24 +67,24 @@
                             <!-- Header User End -->
                             <!-- Header Cart Start -->
                             <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                <div class="header-icon"><img src="assetsUser/images/icons/wishlist.svg"
+                                <div class="header-icon"><img src="{{asset('assetsUser/images/icons/wishlist.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
                                 <span class="ec-header-count">4</span>
                             </a>
                             <!-- Header Cart End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><img src="assetsUser/images/icons/cart.svg"
+                                <div class="header-icon"><img src="{{asset('assetsUser/images/icons/cart.svg')}}"
                                         class="svg_img header_svg" alt="" /></div>
                                 <span class="ec-header-count cart-count-lable">3</span>
                             </a>
                             <!-- Header Cart End -->
                             <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
-                                <img src="assetsUser/images/icons/category-icon.svg" class="svg_img header_svg" alt="icon" />
+                                <img src="{{asset('assetsUser/images/icons/category-icon.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <!-- Header menu Start -->
                             <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                                <img src="assetsUser/images/icons/menu.svg" class="svg_img header_svg" alt="icon" />
+                                <img src="{{asset('assetsUser/images/icons/menu.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <!-- Header menu End -->
                         </div>
@@ -102,8 +102,8 @@
                         <!-- Ec Header Logo Start -->
                         <div class="align-self-center">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assetsUser/images/logo/logo.png" alt="Site Logo" /><img
-                                        class="dark-logo" src="assetsUser/images/logo/dark-logo.png" alt="Site Logo"
+                                <a href="index.html"><img src="{{asset('assetsUser/images/logo/logo.png')}}" alt="Site Logo" /><img
+                                        class="dark-logo" src="{{asset('assetsUser/images/logo/dark-logo.png" alt="Site Logo')}}"
                                         style="display: none;" /></a>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                             <div class="header-search">
                                 <form class="ec-btn-group-form" action="#">
                                     <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                                    <button class="submit" type="submit"><img src="assetsUser/images/icons/search.svg"
+                                    <button class="submit" type="submit"><img src="{{asset('assetsUser/images/icons/search.svg')}}"
                                             class="svg_img header_svg" alt="" /></button>
                                 </form>
                             </div>
@@ -128,7 +128,7 @@
                                 <!-- Header User Start -->
                                 <div class="ec-header-user dropdown">
                                     <button class="dropdown-toggle" data-bs-toggle="dropdown"><img
-                                            src="assetsUser/images/icons/user.svg" class="svg_img header_svg" alt="" /></button>
+                                            src="{{asset('assetsUser/images/icons/user.svg')}}" class="svg_img header_svg" alt="" /></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a class="dropdown-item" href="register.html">Register</a></li>
                                         <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
@@ -138,14 +138,14 @@
                                 <!-- Header User End -->
                                 <!-- Header wishlist Start -->
                                 <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><img src="assetsUser/images/icons/wishlist.svg"
+                                    <div class="header-icon"><img src="{{asset('assetsUser/images/icons/wishlist.svg')}}"
                                             class="svg_img header_svg" alt="" /></div>
                                     <span class="ec-header-count">4</span>
                                 </a>
                                 <!-- Header wishlist End -->
                                 <!-- Header Cart Start -->
                                 <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><img src="assetsUser/images/icons/cart.svg"
+                                    <div class="header-icon"><img src="{{asset('assetsUser/images/icons/cart.svg')}}"
                                             class="svg_img header_svg" alt="" /></div>
                                     <span class="ec-header-count cart-count-lable">3</span>
                                 </a>
@@ -165,8 +165,8 @@
                     <!-- Ec Header Logo Start -->
                     <div class="col">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assetsUser/images/logo/logo.png" alt="Site Logo" /><img
-                                    class="dark-logo" src="assetsUser/images/logo/dark-logo.png" alt="Site Logo"
+                            <a href="index.html"><img src="{{asset('assetsUser/images/logo/logo.png')}}" alt="Site Logo" /><img
+                                    class="dark-logo" src="{{asset('assetsUser/images/logo/dark-logo.png')}}" alt="Site Logo"
                                     style="display: none;" /></a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         <div class="header-search">
                             <form class="ec-btn-group-form" action="#">
                                 <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                                <button class="submit" type="submit"><img src="assetsUser/images/icons/search.svg"
+                                <button class="submit" type="submit"><img src="{{asset('assetsUser/images/icons/search.svg')}}"
                                         class="svg_img header_svg" alt="icon" /></button>
                             </form>
                         </div>
@@ -193,7 +193,7 @@
                     <div class="col-md-12 align-self-center">
                         <div class="ec-main-menu">
                             <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
-                                <img src="assetsUser/images/icons/category-icon.svg" class="svg_img header_svg" alt="icon" />
+                                <img src="{{asset('assetsUser/images/icons/category-icon.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <ul>
                                 <li><a href="index.html">Home</a></li>
@@ -252,16 +252,16 @@
                                         <li>
                                             <ul class="ec-main-banner w-100">
                                                 <li><a class="p-0" href="shop-left-sidebar-col-3.html"><img
-                                                            class="img-responsive" src="assetsUser/images/menu-banner/1.jpg"
+                                                            class="img-responsive" src="{{asset('assetsUser/images/menu-banner/1.jpg')}}"
                                                             alt=""></a></li>
                                                 <li><a class="p-0" href="shop-left-sidebar-col-4.html"><img
-                                                            class="img-responsive" src="assetsUser/images/menu-banner/2.jpg"
+                                                            class="img-responsive" src="{{asset('assetsUser/images/menu-banner/2.jpg')}}"
                                                             alt=""></a></li>
                                                 <li><a class="p-0" href="shop-right-sidebar-col-3.html"><img
-                                                            class="img-responsive" src="assetsUser/images/menu-banner/3.jpg"
+                                                            class="img-responsive" src="{{asset('assetsUser/images/menu-banner/3.jpg')}}"
                                                             alt=""></a></li>
                                                 <li><a class="p-0" href="shop-right-sidebar-col-4.html"><img
-                                                            class="img-responsive" src="assetsUser/images/menu-banner/4.jpg"
+                                                            class="img-responsive" src="{{asset('assetsUser/images/menu-banner/4.jpg')}}"
                                                             alt=""></a></li>
                                             </ul>
                                         </li>
@@ -434,7 +434,7 @@
                                 </li>
                                 <li><a href="offer.html">Hot Offers</a></li>
                                 <li class="dropdown scroll-to"><a href="javascript:void(0)"><img
-                                    src="assetsUser/images/icons/scroll.svg" class="svg_img header_svg scroll" alt="" /></a>
+                                    src="{{asset('assetsUser/images/icons/scroll.svg')}}" class="svg_img header_svg scroll" alt="" /></a>
                                     <ul class="sub-menu">
                                         <li class="menu_title">Scroll To Section</li>
                                         <li><a href="javascript:void(0)" data-scroll="collection" class="nav-scroll">Top Collection</a></li>
@@ -511,7 +511,7 @@
                                     </ul>
                                 </li>
                                 <li><a class="p-0" href="shop-left-sidebar-col-3.html"><img class="img-responsive"
-                                            src="assetsUser/images/menu-banner/1.jpg" alt=""></a>
+                                            src="{{asset('assetsUser/images/menu-banner/1.jpg')}}" alt=""></a>
                                 </li>
                             </ul>
                         </li>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ProductGallery;
 use Illuminate\Http\Request;
 
 class ProductGalleryController extends Controller
@@ -34,7 +34,8 @@ class ProductGalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $images = ProductGallery::all()->where('imageColor', $request->colorGallery)->where('product_id', $request->productId)->pluck('image');
+        return $images;
     }
 
     /**
@@ -45,7 +46,7 @@ class ProductGalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        return 1;
     }
 
     /**
@@ -56,7 +57,7 @@ class ProductGalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -68,7 +69,7 @@ class ProductGalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 3;
     }
 
     /**
@@ -79,6 +80,6 @@ class ProductGalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 4;
     }
 }

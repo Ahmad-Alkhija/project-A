@@ -1,4 +1,5 @@
   <!-- site Favicon -->
+
   <link rel="icon" href="{{asset('assetsUser/images/favicon/favicon.png" sizes="32x32')}}"/>
   <link rel="apple-touch-icon" href="{{asset('assetsUser/images/favicon/favicon.png')}}" />
   <meta name="msapplication-TileImage" content="assetsUser/images/favicon/favicon.png" />
@@ -18,9 +19,16 @@
 
 
   <!-- Main Style -->
-  <link rel="stylesheet" href="{{asset('assetsUser/css/demo1.css')}}" />
+
   <link rel="stylesheet" href="{{asset('assetsUser/css/style.css')}}" />
+  {{-- <link rel="stylesheet" href="{{asset('assetsUser/css/demo4.css')}}" /> --}}
   <link rel="stylesheet" href="{{asset('assetsUser/css/responsive.css')}}" />
 
   <!-- Background css -->
+
   <link rel="stylesheet" id="bg-switcher-css" href="{{asset('assetsUser/css/backgrounds/bg-4.css')}}">
+
+
+
+
+

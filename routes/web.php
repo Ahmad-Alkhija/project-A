@@ -10,6 +10,8 @@ use App\Http\Controllers\productGalleryController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CategoryUserController;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\ProductViewController;
+
 
 
 
@@ -30,7 +32,10 @@ Route::get('/', function () {
     return view('masterUser');
 });
 Route::resource('/categoryUser', CategoryUserController::class);
+Route::resource('/productView', ProductViewController::class);
 Route::resource('/card', CardController::class);
+Route::resource('/productGallery', ProductGalleryController::class);
+
 
 
 
@@ -46,6 +51,5 @@ Route::group(['middleware'=>['AuthLogin']],function(){
     Route::resource('/subCategory', SubCategoryController::class);
     Route::resource('/product', ProductController::class);
     Route::resource('/listProduct', ListProductController::class);
-    Route::resource('/productGallery', ProductGalleryController::class);
     Route::resource('/offer', OfferController::class);
 });

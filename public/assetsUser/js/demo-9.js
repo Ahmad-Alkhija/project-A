@@ -53,7 +53,7 @@ function ecCheckCookie()
 
         $("body").addClass(bgClass);
 
-        $("#bg-switcher-css").attr("href", "assets/demo-4/css/backgrounds/" + bgID + ".css");
+        $("#bg-switcher-css").attr("href", "assetsUser/demo-4/css/backgrounds/" + bgID + ".css");
     }
 
     var rtlMode = ecAccessCookie("rtlModeCookie");
@@ -62,7 +62,7 @@ function ecCheckCookie()
         // alert(rtlMode);
         var $link = $('<link>', {
             rel: 'stylesheet',
-            href: 'assets/demo-4/css/rtl.css',
+            href: 'assetsUser/demo-4/css/rtl.css',
             class: 'rtl'
         });
         $(".ec-tools-sidebar .ec-change-rtl").toggleClass('active');
@@ -76,11 +76,11 @@ function ecCheckCookie()
     {
         var $link = $('<link>', {
             rel: 'stylesheet',
-            href: 'assets/demo-4/css/dark.css',
+            href: 'assetsUser/demo-4/css/dark.css',
             class: 'dark'
         });
 
-        $("link[href='assets/demo-4/css/responsive.css']").before($link);
+        $("link[href='assetsUser/demo-4/css/responsive.css']").before($link);
 
         $(".ec-tools-sidebar .ec-change-mode").toggleClass('active');
         $("body").addClass("dark");
@@ -94,7 +94,7 @@ function ecCheckCookie()
             $('li[data-color = '+themeColor+']').addClass('active');
 
             if(themeColor != '01'){
-                $("link[href='assets/demo-4/css/responsive.css']").before('<link rel="stylesheet" href="assets/demo-4/css/skin-'+themeColor+'.css" rel="stylesheet">');
+                $("link[href='assetsUser/demo-4/css/responsive.css']").before('<link rel="stylesheet" href="assetsUser/demo-4/css/skin-'+themeColor+'.css" rel="stylesheet">');
             }
         }
     }
@@ -614,7 +614,7 @@ function ecCheckCookie()
 
     /*--------------------- Theme Color Change -------------------------------- */
     $('.ec-change-color').on('click', 'li', function(){
-        $('link[href^="assets/demo-4/css/skin-"]').remove();
+        $('link[href^="assetsUser/demo-4/css/skin-"]').remove();
         $('link.dark').remove();
         $('.ec-change-mode').removeClass("active");
         var dataValue = $(this).attr('data-color');
@@ -624,7 +624,7 @@ function ecCheckCookie()
         $(this).toggleClass('active').siblings().removeClass('active');
 
         if(dataValue != undefined){
-            $("link[href='assets/demo-4/css/responsive.css']").before('<link rel="stylesheet" href="assets/demo-4/css/skin-'+dataValue+'.css" rel="stylesheet">');
+            $("link[href='assetsUser/demo-4/css/responsive.css']").before('<link rel="stylesheet" href="assetsUser/demo-4/css/skin-'+dataValue+'.css" rel="stylesheet">');
             // localStorage.setItem("colormode", dataValue);
             ecCreateCookie('themeColorCookie',dataValue,1);
         }
@@ -637,7 +637,7 @@ function ecCheckCookie()
         e.preventDefault();
         var $link = $('<link>', {
             rel: 'stylesheet',
-            href: 'assets/demo-4/css/rtl.css',
+            href: 'assetsUser/demo-4/css/rtl.css',
             class: 'rtl'
         });
         $(this).parent().toggleClass('active');
@@ -659,13 +659,13 @@ function ecCheckCookie()
         e.preventDefault();
         var $link = $('<link>', {
             rel: 'stylesheet',
-            href: 'assets/demo-4/css/dark.css',
+            href: 'assetsUser/demo-4/css/dark.css',
             class: 'dark'
         });
         $(this).parent().toggleClass('active');
         var modevalue = "light";
         if ($(this).parent().hasClass('ec-change-mode') && $(this).parent().hasClass('active')){
-                $("link[href='assets/demo-4/css/responsive.css']").before($link);
+                $("link[href='assetsUser/demo-4/css/responsive.css']").before($link);
 
         } else if($(this).parent().hasClass('ec-change-mode') && !$(this).parent().hasClass('active')){
             $('link.dark').remove();
@@ -1149,7 +1149,7 @@ function ecCheckCookie()
 
         $("body").addClass(bgClass);
 
-        $("#bg-switcher-css").attr("href", "assets/demo-4/css/backgrounds/" + bgID + ".css");
+        $("#bg-switcher-css").attr("href", "assetsUser/demo-4/css/backgrounds/" + bgID + ".css");
 
         var bgIDClass = bgID + '||' + bgClass;
 

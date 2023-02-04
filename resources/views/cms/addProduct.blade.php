@@ -24,7 +24,7 @@
                 <div class="row ec-vendor-uploads">
                     <div class="col-lg-4">
                         <div class="ec-vendor-img-upload">
-                            <div class="ec-vendor-main-img">
+                            <div class="ec-vendor-main-img addImage">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
                                         <input  name="image_main" type='file' id="imageUpload" class="image_main ec-image-upload"
@@ -42,10 +42,31 @@
                                     </div>
                                     <span class="text-danger error-text image_main_err"></span>
                                 </div>
-                                <div class="thumb-upload-set colo-md-12">
+
+                                <div class="thumb-upload-set colo-md-12   imageColor1">
+
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
-                                            <input  name="images[]"type='file' id="thumbUpload01"
+                                            <input  name="images1[]"type='file' id="thumbUpload01"
+                                                class="image ec-image-upload"
+                                                accept=".png, .jpg, .jpeg" />
+                                            <label for="imageUpload"><img
+                                                    src="assets/img/icons/edit.svg"
+                                                    class="svg_img header_svg" alt="edit" /></label>
+                                        </div>
+                                        <div class="thumb-preview ec-preview">
+                                            <div class="image-thumb-preview">
+                                                <img class="image image-thumb-preview ec-image-preview"
+                                                    src="assets/img/products/vender-upload-thumb-preview.jpg"
+                                                    alt="edit" />
+                                            </div>
+                                        </div>
+                                        <span class="text-danger error-text image_err"></span>
+                                    </div>
+                                    <input type="hidden" name="counterGallery[]" value="1">
+                                    <div class="thumb-upload">
+                                        <div class="thumb-edit">
+                                            <input name="images1[]" type='file' id="thumbUpload02"
                                                 class="image ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
@@ -63,25 +84,7 @@
                                     </div>
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
-                                            <input name="images[]" type='file' id="thumbUpload02"
-                                                class="image ec-image-upload"
-                                                accept=".png, .jpg, .jpeg" />
-                                            <label for="imageUpload"><img
-                                                    src="assets/img/icons/edit.svg"
-                                                    class="svg_img header_svg" alt="edit" /></label>
-                                        </div>
-                                        <div class="thumb-preview ec-preview">
-                                            <div class="image-thumb-preview">
-                                                <img class="image image-thumb-preview ec-image-preview"
-                                                    src="assets/img/products/vender-upload-thumb-preview.jpg"
-                                                    alt="edit" />
-                                            </div>
-                                        </div>
-                                        <span class="text-danger error-text image_err"></span>
-                                    </div>
-                                    <div class="thumb-upload">
-                                        <div class="thumb-edit">
-                                            <input  name="images[]" type='file' id="thumbUpload03"
+                                            <input  name="images1[]" type='file' id="thumbUpload03"
                                                 class="ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
@@ -99,7 +102,7 @@
                                     </div>
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
-                                            <input  name="images[]" type='file' id="thumbUpload04"
+                                            <input  name="images1[]" type='file' id="thumbUpload04"
                                                 class="image ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
@@ -117,7 +120,7 @@
                                     </div>
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
-                                            <input  name="images[]" type='file' id="thumbUpload05"
+                                            <input  name="images1[]" type='file' id="thumbUpload05"
                                                 class="image ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
@@ -135,7 +138,7 @@
                                     </div>
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
-                                            <input   name="images[]" type='file' id="thumbUpload06"
+                                            <input   name="images1[]" type='file' id="thumbUpload06"
                                                 class="image ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
@@ -152,6 +155,7 @@
                                         <span class="text-danger error-text image_err"></span>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -162,7 +166,25 @@
                                     <label for="inputEmail4" class="form-label">Product name</label>
                                     <input name="name" type="text" class="name form-control slug-title" id="inputEmail4">
                                 </div>
-                                <span class="text-danger error-text name_err"></span>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Select Sale type</label>
+                                    <select name="saleType" id="saleType" class="saleType form-select">
+                                        <option value="" disabled selected hidden>Choose a Sale Type</option>
+
+                                        <option value="WholeSale">Whole Sale</option>
+                                        <option value="RetailSale">Retail Sale</option>
+                                        <option value="RetailSale&WholeSale">Whole and Retail Sale</option>
+                                        <span class="text-danger error-text saleType_err"></span>
+                                    </select>
+
+                                        <input name="wholeSaleQuantity" value="0" placeholder="enter the quantity for whole price" type="number" class="d-none wholeSaleQuantity form-control" >
+
+                                        <span class="text-danger error-text wholeSaleQuantity_err"></span>
+
+
+                                </div>
+
                                 <div class="col-md-6">
                                     <label class="form-label">Select Categories</label>
                                     <select name="subCategory_id" id="Categories" class="subCategory_id form-select">
@@ -186,6 +208,41 @@
                                     </select>
                                     <span class="text-danger error-text subCategory_id_err"></span>
                                 </div>
+
+                {{--
+
+
+
+                    --}}
+
+
+
+
+
+                    <div class="col-md-6">
+                        <label class="form-label">Select Gender</label>
+                        <select name="gender" id="gender" class="gender form-select">
+                            <option value="" disabled selected hidden>Choose a Gender</option>
+
+                            <option value="men">Men</option>
+                            <option value="women">Wonen</option>
+                            <option value="boy">Kid(Boy)</option>
+                            <option value="girl">Kid(Girl)</option>
+
+                        </select>
+                        <span class="text-danger error-text gender_err"></span>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
                                 <div class="col-md-12">
                                     <label for="slug" class="col-12 col-form-label">Slug</label>
                                     <div class="col-12">
@@ -198,20 +255,28 @@
                                     <textarea class="sortDescription" name="sortDescription" class="form-control" rows="2"></textarea>
                                     <span class="text-danger error-text sortDescription_err"></span>
                                 </div>
-                                <div class="col-md-4 mb-25">
+                                <div class="col-md-4 mb-25 " >
+
                                     <label class="form-label">Colors</label>
-                                    <input class="color" name="color[]" type="color" class="form-control form-control-color"
-                                        id="exampleColorInput1" value="#ff6191"
+
+                              <input type="hidden" class="galleryColor1" name="galleryColor1" value="">
+                                    <input class="color clickColor" name="color[]" type="color" class="form-control form-control-color"
+                                        id="galleryColor1" value="#00000"
                                         title="Choose your color">
-                                    <input class="color" name="color[]" type="color" class="form-control form-control-color"
-                                        id="exampleColorInput2" value="#33317d"
-                                        title="Choose your color">
-                                    <input class="color" name="color[]" type="color" class="form-control form-control-color"
-                                        id="exampleColorInput3" value="#56d4b7"
-                                        title="Choose your color">
-                                    <input class="color" name="color[]" type="color" class="form-control form-control-color"
-                                        id="exampleColorInput4" value="#009688"
-                                        title="Choose your color">
+                                        <button type="button" value="1" class="colorGallery colorGallery1  btn btn-primary btn-sm w-25 p-2 m-2">Show Gallery </button>
+
+                                        <span class="colorDiv">
+                                        </span>
+
+
+<br>
+<br>
+
+<button type="button" class="addColor btn btn-primary btn-sm  ">Add Color</button>
+
+<button type="button" class="removeColor btn btn-danger btn-sm d-none ">Remove Color</button>
+
+
                                 </div>
                                 <div class="col-md-8 mb-25">
                                     <label class="form-label">Size USA</label>
@@ -372,7 +437,7 @@ headers: {
   success:function(data){
     if($.isEmptyObject(data.error)){
                       console.log(data);
-                      deleteProductInput(data);
+                    //   deleteProductInput(data);
 $('.offer').val("")
 $( ".offer_info" ).addClass( "d-none" );
 $( "#removeoffer" ).addClass( "d-none" );
@@ -437,8 +502,100 @@ $("#removeoffer").click(function(e){
 $('.offer').val("")
 $( ".offer_info" ).addClass( "d-none" );
 $( "#removeoffer" ).addClass( "d-none" );
-$( "#addoffer" ).removeClass( "d-none" );
 
 });
+
+//////
+
+$(document).on('change','#saleType',function(e){
+e.preventDefault();
+if($(this).val()=="WholeSale"||$(this).val()=="RetailSale&WholeSale"){
+$( ".wholeSaleQuantity" ).removeClass( "d-none" );
+$( ".wholeSaleQuantity" ).val("");
+console.log($( ".wholeSaleQuantity" ).val());
+}
+else{
+    $( ".wholeSaleQuantity" ).addClass( "d-none" );
+$( ".wholeSaleQuantity" ).val(0);
+console.log($( ".wholeSaleQuantity" ).val());
+5
+}
+});
+var counterColor=1
+var certainGalley=1
+var counterGallery=1
+
+$(document).on('click','.addColor',function(e){
+e.preventDefault();
+counterColor++;
+counterGallery++;
+
+$('.colorDiv').append('<div class="allColor'+counterColor+'" >    <input type="hidden" class="galleryColor'+counterColor+'" name="galleryColor'+counterColor+'" value=""><input class="color clickColor" name="color[]" type="color" class="form-control form-control-color"id="galleryColor'+counterColor+'" value="#00000"title="Choose your color"><button  value="'+counterColor+'" type="button" class="colorGallery colorGallery'+counterColor+' btn btn-primary btn-sm w-25 p-2 m-1">Show Gallery </button></div>')
+
+$('.addImage').append('<div class="thumb-upload-set colo-md-12  imageColor'+ counterColor+'"><input type="hidden" name="counterGallery[]" value="'+counterGallery+'"/></div>')
+for(var i=0; i<6 ;i++){
+
+$('.imageColor'+counterColor).append('<div class="thumb-upload"><div class="thumb-edit"><input  name="images'+counterGallery+'[]" type="file" id="thumbUpload07" class="image ec-image-upload" accept=".png, .jpg, .jpeg" /> <label for="imageUpload"><img src="assets/img/icons/edit.svg" class="svg_img header_svg" alt="edit" /></label> </div> <div class="thumb-preview ec-preview"> <div class="image-thumb-preview"> <img class="image image-thumb-preview ec-image-preview" src="assets/img/products/vender-upload-thumb-preview.jpg" alt="edit" /> </div> </div> <span class="text-danger error-text image_err"></span> </div>')
+}
+certainGalley=counterColor;
+
+
+for( var i=1; counterColor>i; i++){
+
+    $( '.imageColor'+i ).addClass( "d-none" );
+
+}
+
+
+
+
+
+
+$( ".removeColor" ).removeClass( "d-none" );
+
+});
+
+$(document).on('click','.removeColor',function(e){
+e.preventDefault();
+$('.allColor'+counterColor).remove()
+$( '.imageColor'+counterColor ).remove();
+oldCounterColor=counterColor;
+counterColor--
+counterGallery--
+if(oldCounterColor==certainGalley){
+$( '.imageColor'+counterColor ).removeClass( "d-none" );
+certainGalley=counterColor
+}
+
+
+if(counterColor==1){
+$( ".removeColor" ).addClass( "d-none" );
+ counterColor=1
+ certainGalley=1
+}
+
+
+});
+
+$(document).on('click','.colorGallery',function(e){
+e.preventDefault();
+if($(this).val()!=certainGalley){
+$( '.imageColor'+$(this).val()).removeClass( "d-none" );
+$( '.imageColor'+certainGalley).addClass( "d-none" );
+certainGalley=$(this).val();
+}
+
+});
+
+
+$(document).on('input','.clickColor',function(e){
+    e.preventDefault();
+$('.'+$(this).attr('id')).val($(this).val())
+console.log($('.'+$(this).attr('id')).val());
+
+
+})
+
+
 </script>
 @stop

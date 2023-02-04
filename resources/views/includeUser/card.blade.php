@@ -1,3 +1,6 @@
+@if($products->isEmpty())
+<h1>No Data Available</h1>
+@else
 @foreach($products as $product)
 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
     <div class="ec-product-inner">
@@ -12,7 +15,7 @@
                 @if(isset($product->offer->offer))
                 <span class="percentage">{{$product->offer->offer}}%</span>
                 @endif
-                <a href="#" class="quickview" data-link-action="quickview"
+                <a href="{{$product->id}}" value="{{$product->id}}" class="quickview" data-link-action="quickview"
                     title="Quick view" data-bs-toggle="modal"
                     data-bs-target="#ec_quickview_modal"><img
                         src="assetsUser/images/icons/quickview.svg" class="svg_img pro_svg"
@@ -31,14 +34,14 @@
             </div>
         </div>
         <div class="ec-pro-content">
-            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$product->name}}</a></h5>
-            <div class="ec-pro-rating">
+            <h5 class="ec-pro-title"><a href="/productView/{{$product->id}} ">{{$product->name}}</a></h5>
+            {{-- <div class="ec-pro-rating">
                 <i class="ecicon eci-star fill"></i>
                 <i class="ecicon eci-star fill"></i>
                 <i class="ecicon eci-star fill"></i>
                 <i class="ecicon eci-star "></i>
                 <i class="ecicon eci-star"></i>
-            </div>
+            </div> --}}
             <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
             <span class="ec-price">
                 @if(!isset($product->offer->offer))
@@ -64,7 +67,7 @@
                      @endforeach
                     </ul>
                 </div>
-                <div class="ec-pro-size">
+                {{-- <div class="ec-pro-size">
                     <span class="ec-pro-opt-label">Size</span>
                     <ul class="ec-opt-size">
                         <li class="active"><a href="#" class="ec-opt-sz"
@@ -77,9 +80,10 @@
                         <li><a href="#" class="ec-opt-sz" data-old="$35.00"
                                 data-new="$30.00" data-tooltip="Extra Large">XL</a></li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 </div>
 @endforeach
+@endif

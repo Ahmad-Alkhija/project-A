@@ -89,6 +89,18 @@ class ListProductController extends Controller
             'fulDetail'  => 'required',
             'productTag'  => 'required',
             'subCategory_id'  => 'required',
+            'wholeSaleQuantity'  => 'required',
+            'gender'  => 'required',
+            'saleType'  => 'required',
+            'image_main'  => 'dimensions:width=500,height=500',
+            'images.1' => 'dimensions:width=500,height=500',
+            'images.3' => 'dimensions:width=500,height=500',
+            'images.5' => 'dimensions:width=500,height=500',
+            'images.7' => 'dimensions:width=500,height=500',
+            'images.9' => 'dimensions:width=500,height=500',
+            'images.11' => 'dimensions:width=500,height=500',
+            'images.13' => 'dimensions:width=500,height=500',
+
         ]);
 
 
@@ -105,6 +117,9 @@ class ListProductController extends Controller
                 $product->color=$request->color;
                 $product->size=$request->size;
                 $product->price=$request->price;
+                $product->saleType=$request->saleType;
+                $product->gender=$request->gender;
+                $product->wholeSaleQuantity=$request->wholeSaleQuantity;
                 $product->quantity=$request->quantity;
                 $product->sortDescription=$request->sortDescription;
                 $product->fulDetail=$request->fulDetail;
@@ -125,21 +140,33 @@ class ListProductController extends Controller
 
             $count=0;
                 foreach($request->images as $key=>$image){
-                if ($key % 2 != 0&&$key!=null) {
+                if ($key % 2 != 0) {
 
                     $productGallery = ProductGallery::find($request->images[$key-1]);
-                    $image_path = 'images/'.$productGallery->image;
-                    if(File::exists($image_path)) {
-                        File::delete($image_path);
-                    }
-                    $fileName2 = 'img_' . time() . '.' . $count . '.' . $image->extension();
-                    $destinationPath = public_path() . '/images';
-                    $image->move($destinationPath, $fileName2);
-                    $productGallery->image = $fileName2;
-                    $productGallery->update();
-                    $count++;
 
+                    if( $productGallery==null){
+                        $productGallery= new ProductGallery();
+                        $productGallery->product_id=$product->id;
+                        $fileName2='img_'.time().'.'.$count.'.'.$image->extension();
+                        $destinationPath = public_path().'/images' ;
+                        $image->move($destinationPath,$fileName2);
+                        $productGallery->image=$fileName2;
+                        $productGallery->save();
+                        $count++;
+                    } else {
+                        $image_path = 'images/' . $productGallery->image;
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
+                        $fileName2 = 'img_' . time() . '.' . $count . '.' . $image->extension();
+                        $destinationPath = public_path() . '/images';
+                        $image->move($destinationPath, $fileName2);
+                        $productGallery->image = $fileName2;
+                        $productGallery->update();
+                        $count++;
+                    }
                 }
+
                      }
 
 

@@ -46,6 +46,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        // return $request->counterGallery;
+
+        // return $request->images;
         $validator = Validator::make($request->all(), [
             'name'  => 'required',
             'slug'  => 'required',
@@ -53,13 +57,17 @@ class ProductController extends Controller
             'price'  => 'required',
             'quantity'  => 'required',
             'sortDescription'  => 'required',
+            'gender'  => 'required',
             'fulDetail'  => 'required',
             'productTag'  => 'required',
             'subCategory_id'  => 'required',
-            'image_main'  => 'required',
-            'images'  => 'required',
+            'saleType'  => 'required',
+            'wholeSaleQuantity'  => 'required',
+            'image_main'  => 'required|dimensions:width=500,height=500',
+            // 'images.*' => 'required|dimensions:width=500,height=500',
 
         ]);
+
 
 
             if ($validator->fails())
@@ -72,7 +80,10 @@ class ProductController extends Controller
                 $product->name=$request->name;
                 $product->slug=$request->slug;
                 $product->color=$request->color;
+                $product->saleType=$request->saleType;
+                $product->wholeSaleQuantity=$request->wholeSaleQuantity;
                 $product->size=$request->size;
+                $product->gender=$request->gender;
                 $product->price=$request->price;
                 $product->quantity=$request->quantity;
                 $product->sortDescription=$request->sortDescription;
@@ -86,18 +97,30 @@ class ProductController extends Controller
                 $product->image=$fileName2;
                 $product->save();
 
-            $count=0;
+            $count = 0;
 
-                foreach($request->images as $image){
-                    $productGallery= new ProductGallery();
-                    $productGallery->product_id=$product->id;
-                    $fileName2='img_'.time().'.'.$count.'.'.$image->extension();
-                    $destinationPath = public_path().'/images' ;
-                    $image->move($destinationPath,$fileName2);
-                    $productGallery->image=$fileName2;
-                    $productGallery->save();
-                    $count++;
-                     }
+foreach($request->counterGallery as $counter){
+    $imageN='images'.''.$counter;
+    $colorN = 'galleryColor' . '' . $counter;
+    foreach($request->$imageN  as $image){
+                $productGallery = new ProductGallery();
+                $productGallery->product_id = $product->id;
+                $productGallery->imageColor = $request->$colorN;
+                $fileName2 = 'img_' . time() . '.' . $count . '.' . $image->extension();
+                $destinationPath = public_path() . '/images';
+                $image->move($destinationPath, $fileName2);
+                $productGallery->image = $fileName2;
+                $productGallery->save();
+                $count++;
+    }
+
+
+
+                }
+
+
+
+
 if($request->offer!=null){
     $offer= new Offer();
     $offer->product_id=$product->id;

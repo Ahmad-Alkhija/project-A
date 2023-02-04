@@ -23,11 +23,14 @@ class CreateProductsTable extends Migration
             $table->integer("price");
             $table->integer("quantity");
             $table->string("fulDetail");
+            $table->string("gender");
+            $table->string("saleType");
+            $table->integer("wholeSaleQuantity");
             $table->string("productTag");
             $table->string("image");
             $table->unsignedBigInteger("subCategory_id");
             $table->foreign('subCategory_id')->references('id')->on('sub_categories')->onDelete('cascade');
-           
+
 
             $table->timestamps();
         });

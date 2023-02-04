@@ -31036,7 +31036,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 
 /** Comingsoon 2 page **/
 .ec-coming-soon-02 {
-  background: url("../../assets/images/common/1.jpg");
+  background: url("../../assetsUser/images/common/1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32229,7 +32229,7 @@ input[type=email]:focus::-webkit-input-placeholder {
    vendor Page CSS
    	- Single Vendor
    	- Multi Vendor
-   	- Vendor Sidebar 
+   	- Vendor Sidebar
    	- Vendor Dashboard
    	- Vendor Upload
    	- Vendor Profile

@@ -3,9 +3,9 @@
 /*--------------------- Start Chat Boat ---------------------- */
     //simple method to give random item from array
     var randomItem = function(array){return array[Math.floor(Math.random() * array.length)];};
-    
+
     var username = "Stranger";
-    
+
    var maxAttention123 = 45;
 
    var kid = {
@@ -134,9 +134,9 @@
             var kidWPM = this.WPM;
             var kidReply = "";
             var isCopyPasta = false;
-            if(text !== undefined && text !== null && text !== ""){ 
-                kidReply = text; 
-            } else {				
+            if(text !== undefined && text !== null && text !== ""){
+                kidReply = text;
+            } else {
                 if($(".ec-chatbox .messages-wrapper .you").length === 1){
                 kidReply = randomItem(this.greetings);
                 }else{
@@ -160,7 +160,7 @@
                     kidReply = finalDecision;
                 }
             }
-            
+
             //function to simulate actual typing using WPM to estimate how long it'd take to type up a reply
             var sendReply = function(replyText, isPasta){
                 setTimeout(function(){
@@ -172,24 +172,24 @@
             };
             //function to delay response time (so kid doesnt start typing response instantly)
             setTimeout(function(){
-                
+
                 var html = '<div class="them message typing-msg">'+
                         '<div class="avatar">'+
-                            '<img class="chat-user-img" src="assets/images/chatboat/helper.png"/>'+
+                            '<img class="chat-user-img" src="assetsUser/images/chatboat/helper.png"/>'+
                         '</div>'+
                         '<div class="name">'+
                             '<svg style="margin: auto;display: block;shape-rendering: auto;width: 43px;height: 20px;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><circle cx="0" cy="44.1678" r="15" fill="#888ea8"><animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.6s"></animate></circle> <circle cx="45" cy="43.0965" r="15" fill="#888ea8"><animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.39999999999999997s"></animate></circle> <circle cx="90" cy="52.0442" r="15" fill="#888ea8"><animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.19999999999999998s"></animate></circle></svg>'+
                         '</div>'+
                     '</div>';
-                        
+
                 $(".ec-chatbox .messages-wrapper").append($.parseHTML(html));
                 $(".ec-chatbox").scrollTop($(".ec-chatbox .messages-wrapper").height());
-                    
+
                 sendReply(kidReply, isCopyPasta);
             },(250+(Math.random()*5000)));
         },
     };
-    
+
     //start attention span countdown
     var timerActive = false, almostAFK = false;
     var attentionTimer = function(){
@@ -212,20 +212,20 @@
             }
         }, 1000);
     };
-    
+
     //function to add message to window, if who === username, it's your message, otherwise its the stranger
     var sendMsg = function(who, text){
         if(text === null || text === undefined || text === ""){return;}
-        
+
         if($(".ec-reply input.usermsg").attr("placeholder") != ""){
             $(".ec-reply input.usermsg").attr("placeholder","");
         }
 
         var curntTime = formatAMPM(new Date);
-        
+
         var html = '<div class="'+(who === username?"you":"them")+' message">'+
                         '<div class="avatar">'+
-                            '<img class="chat-user-img" src="assets/images/chatboat/'+(who === username?"customer":"helper")+'.png"/>'+
+                            '<img class="chat-user-img" src="assetsUser/images/chatboat/'+(who === username?"customer":"helper")+'.png"/>'+
                         '</div>'+
                         '<div class="name">'+
                             '<p class="user-name">'+who+'</p>'+
@@ -236,7 +236,7 @@
 
         $(".ec-chatbox .messages-wrapper").append($.parseHTML(html));
         $(".ec-chatbox").scrollTop($(".ec-chatbox .messages-wrapper").height());
-        
+
         if(who === username){
             if(!timerActive){
                 timerActive = true;attentionTimer();
@@ -249,7 +249,7 @@
             $(".ec-reply input.usermsg").val("");
         }
     };
-    
+
     //function to set initial username
     $(".ec-setuser button").click(function(){
         var desiredName = $(".ec-setuser .username").val();
@@ -260,7 +260,7 @@
             username = desiredName;
             $(".ec-setuser, .ec-dim").fadeOut(100);
             setTimeout(function(){
-                
+
                 var dateMonthYear = getDateMonthYear();
                 $(".messages-wrapper .status").text(dateMonthYear);
                 $(".ec-reply input.usermsg").prop('disabled', false);
@@ -272,14 +272,14 @@
             $(".ec-setuser input.username").focus();
         }
     });
-    
+
     //send user's typed message when send button or enter key is pressed
     $(".ec-reply input.usermsg").keydown(function(e){
         if(e.which === 13){
             sendMsg(username, $(this).val());
         }
     });
-    
+
     $(".ec-reply button.send").click(function(){
         sendMsg(username, $(".ec-reply input.usermsg").val());$(".ec-reply input.usermsg").focus();
     });
@@ -303,22 +303,22 @@
         var year = today.getFullYear();
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return dateMonthYear = date+', '+months[month]+' '+year;
-    }					
-    
+    }
+
     var dateMonthYear = getDateMonthYear();
     $(".messages-wrapper .status").text(dateMonthYear);
 
     $('.ec-float-chat').on('click', function(){
-        
+
         var isClass = $('.ec-chat').hasClass('animate__fadeInRight');
         if(isClass){
-            $('.ec-chat').removeClass('animate__fadeInRight');	
-            $('.ec-chat').addClass('animate__fadeOutRight');	
+            $('.ec-chat').removeClass('animate__fadeInRight');
+            $('.ec-chat').addClass('animate__fadeOutRight');
         } else {
-            $('.ec-chat').removeClass('animate__fadeOutRight');	
+            $('.ec-chat').removeClass('animate__fadeOutRight');
             $('.ec-chat').addClass('animate__fadeInRight');
-        }	
-    });		
-            
+        }
+    });
+
 /*--------------------- End Chat Boat ---------------------- */
 })(jQuery);

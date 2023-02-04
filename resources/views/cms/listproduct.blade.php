@@ -280,6 +280,29 @@
                                                 <input name="name" id="name_edit" type="text" class="name form-control slug-title" id="inputEmail4">
                                                 <span class="text-danger error-text name_err"></span>
                                             </div>
+
+
+
+
+
+                                            <div class="col-md-6">
+                                                <label class="form-label">Select Sale type</label>
+                                                <select name="saleType" id="saleType" class="saleType form-select">
+                                                    <option value="" disabled selected hidden>Choose a Sale Type</option>
+
+                                                    <option value="WholeSale">Whole Sale</option>
+                                                    <option value="SingleSale">Single Sale</option>
+                                                    <option value="SingleSale&WholeSale">Whole and Single Sale</option>
+                                                    <span class="text-danger error-text saleType_err"></span>
+                                                </select>
+
+                                                    <input name="wholeSaleQuantity" value="0" placeholder="enter the quantity for whole price" type="number" class="d-none wholeSaleQuantity form-control" >
+
+                                                    <span class="text-danger error-text wholeSaleQuantity_err"></span>
+
+
+                                            </div>
+
                                             <div class="col-md-6">
                                                 <label class="form-label">Select Categories</label>
                                                 <select name="subCategory_id" id="Categories" class="subCategory_id form-select">
@@ -302,6 +325,22 @@
                                                     </optgroup> --}}
                                                 </select>
                                                 <span class="text-danger error-text subCategory_id_edit_err"></span>
+                                            </div>
+
+
+
+                                            <div class="col-md-6">
+                                                <label class="form-label">Select Gender</label>
+                                                <select name="gender" id="gender" class="gender form-select">
+                                                    <option value="" disabled selected hidden>Choose a Gender</option>
+
+                                                    <option value="men">Men</option>
+                                                    <option value="women">Wonen</option>
+                                                    <option value="boy">Kid(Boy)</option>
+                                                    <option value="girl">Kid(Girl)</option>
+
+                                                </select>
+                                                <span class="text-danger error-text gender_err"></span>
                                             </div>
                                             <div class="col-md-12">
                                                 <label for="slug" class="col-12 col-form-label">Slug</label>
@@ -725,6 +764,16 @@ for(i=counter_color;i!=0;i--){
   $('#productTag_edit').val(""+data[0].productTag+"");
   jQuery('.image_main_edit').attr('src', "images/"+data[0].image+"");
   $('.image_main_edit').val("");
+  $("#saleType option[value='"+data[0].saleType+"']").prop("selected","selected")
+  $("#gender option[value='"+data[0].gender+"']").prop("selected","selected")
+
+  if(data[0].saleType=="WholeSale"||data[0].saleType=="SingleSale&WholeSale"){
+
+$( ".wholeSaleQuantity" ).removeClass( "d-none" );
+$( ".wholeSaleQuantity" ).val(data[0].wholeSaleQuantity);
+  }
+
+
 
 
 
@@ -847,7 +896,21 @@ $( "#showLessSizeE_edit" ).addClass( "d-none" )
 }
 });
 
+////
+$(document).on('change','#saleType',function(e){
+e.preventDefault();
+if($(this).val()=="WholeSale"||$(this).val()=="SingleSale&WholeSale"){
+$( ".wholeSaleQuantity" ).removeClass( "d-none" );
+$( ".wholeSaleQuantity" ).val("");
 
+}
+else{
+    $( ".wholeSaleQuantity" ).addClass( "d-none" );
+$( ".wholeSaleQuantity" ).val(0);
+
+5
+}
+});
 
 </script>
 @stop

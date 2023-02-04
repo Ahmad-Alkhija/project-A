@@ -7,6 +7,7 @@
 
   <!--Plugins JS-->
   <script src="{{asset('assetsUser/js/plugins/swiper-bundle.min.js')}}"></script>
+
   <script src="{{asset('assetsUser/js/plugins/nouislider.js')}}"></script>
 
   <script src="{{asset('assetsUser/js/plugins/countdownTimer.min.js')}}"></script>
@@ -27,6 +28,11 @@
       }
   </script>
   <!-- Main Js -->
+  <script src="{{asset('assetsUser/js/main.js')}}"></script>
   <script src="{{asset('assetsUser/js/vendor/index.js')}}"></script>
-  {{-- <script src="{{asset('assetsUser/js/main.js')}}"></script> --}}
+
+
+
+
+
 
