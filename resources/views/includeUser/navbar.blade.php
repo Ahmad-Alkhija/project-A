@@ -196,7 +196,7 @@
                                 <img src="{{asset('assetsUser/images/icons/category-icon.svg')}}" class="svg_img header_svg" alt="icon" />
                             </a>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="/home">Home</a></li>
                                 <li class="dropdown position-static"><a href="/categoryUser">Categories</a>
                                     <ul class="mega-menu d-block">
                                         <li class="d-flex">

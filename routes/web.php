@@ -11,6 +11,10 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CategoryUserController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ProductViewController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\HomeController;
+
+
 
 
 
@@ -35,6 +39,11 @@ Route::resource('/categoryUser', CategoryUserController::class);
 Route::resource('/productView', ProductViewController::class);
 Route::resource('/card', CardController::class);
 Route::resource('/productGallery', ProductGalleryController::class);
+Route::resource('/order', OrderController::class);
+Route::resource('/home', HomeController::class);
+
+
+
 
 
 

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     @include('includeUser.linkCss')
+@yield('css')
+
 
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />

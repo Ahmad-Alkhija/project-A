@@ -46,10 +46,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-        // return $request->counterGallery;
-
-        // return $request->images;
+        
         $validator = Validator::make($request->all(), [
             'name'  => 'required',
             'slug'  => 'required',

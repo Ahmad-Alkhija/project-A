@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Product;
-use App\Models\ProductGallery;
-use App\Models\Offer;
+ use App\Models\Product;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
-class ProductViewController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,13 @@ class ProductViewController extends Controller
      */
     public function index()
     {
-
-        return view("userPage.product");
+        $products = Product::with('offer')->get();
+        $productsNew = Product::select("*")
+        ->whereBetween('created_at',
+                [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]
+            )
+        ->get();
+        return view('userPage.homePage1',compact('products','productsNew'));
     }
 
     /**
@@ -49,12 +53,7 @@ class ProductViewController extends Controller
      */
     public function show($id)
     {
-        $products = Product::with('offer')->find($id);
-        $productGallerys=ProductGallery::where('product_id',$id)->where('imageColor',$products->color[0])->get();
-        $productsRelated = Product::all()->where('gender', $products->gender)->where('saleType', $products->saleType);
-        $productsOffer = Product::with('offer')->get();;
-
-        return view("userPage.product1",compact('products','productGallerys','productsRelated','productsOffer'));
+        //
     }
 
     /**
@@ -65,7 +64,7 @@ class ProductViewController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+        //
     }
 
     /**

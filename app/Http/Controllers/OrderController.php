@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Product;
-use App\Models\ProductGallery;
-use App\Models\Offer;
 
 use Illuminate\Http\Request;
 
-class ProductViewController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class ProductViewController extends Controller
      */
     public function index()
     {
-
-        return view("userPage.product");
+        //
     }
 
     /**
@@ -49,12 +45,19 @@ class ProductViewController extends Controller
      */
     public function show($id)
     {
-        $products = Product::with('offer')->find($id);
-        $productGallerys=ProductGallery::where('product_id',$id)->where('imageColor',$products->color[0])->get();
-        $productsRelated = Product::all()->where('gender', $products->gender)->where('saleType', $products->saleType);
-        $productsOffer = Product::with('offer')->get();;
+        // return $id;
+        $message = "hello";
 
-        return view("userPage.product1",compact('products','productGallerys','productsRelated','productsOffer'));
+        // $store = [
+        //     'phone' => 5078634983,
+        //     'country_code'=>+90,
+        // ];
+
+        // return redirect()->away('https://api.whatsapp.com/send?phone=' . $store->country_code . $store->phone . '&text=' . $message);
+        // return redirect()->away('https://api.whatsapp.com/send?phone=' .+905078634983);
+        return redirect()->away('https://wa.link/ti3ya4');
+
+
     }
 
     /**
@@ -65,7 +68,7 @@ class ProductViewController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+        //
     }
 
     /**
