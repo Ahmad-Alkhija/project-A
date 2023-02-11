@@ -93,6 +93,12 @@
                                                     <img class="hover-image"
                                                         src="images/{{$product->image}}" alt="Product" />
                                                 </a>
+                                                @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                                                 @if(isset($product->offer->offer))
                                                 <span class="percentage">{{$product->offer->offer}}%</span>
                                                 @endif
@@ -196,6 +202,12 @@
                                                     <img class="hover-image"
                                                         src="images/{{$product->image}}" alt="Product" />
                                                 </a>
+                                                @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                                                 @if(isset($product->offer->offer))
                                                 <span class="percentage">{{$product->offer->offer}}%</span>
                                                 @endif
@@ -299,6 +311,12 @@
                                                     <img class="hover-image"
                                                         src="images/{{$product->image}}" alt="Product" />
                                                 </a>
+                                                @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                                                 @if(isset($product->offer->offer))
                                                 <span class="percentage">{{$product->offer->offer}}%</span>
                                                 @endif
@@ -403,6 +421,12 @@
                                                     <img class="hover-image"
                                                         src="images/{{$product->image}}" alt="Product" />
                                                 </a>
+                                                @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                                                 @if(isset($product->offer->offer))
                                                 <span class="percentage">{{$product->offer->offer}}%</span>
                                                 @endif
@@ -537,6 +561,12 @@
                                     <img class="hover-image"
                                         src="images/{{$product->image}}" alt="Product" />
                                 </a>
+                                @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                                 @if(isset($product->offer->offer))
                                 <span class="percentage">{{$product->offer->offer}}%</span>
                                 @endif

@@ -141,15 +141,15 @@
 						</li>
 
 						<!-- Orders -->
-						<li class="has-sub">
+						<li class="has-sub {{Request::route()->getName()==('orderAdd.index')? 'active expand' : "" }}">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-cart"></i>
 								<span class="nav-text">Orders</span> <b class="caret"></b>
 							</a>
-							<div class="collapse">
+							<div class="collapse {{Request::route()->getName()==('product.orderAdd') ? 'show' : "" }}">
 								<ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
-									<li class="">
-										<a class="sidenav-item-link" href="new-order.html">
+									<li class="{{Request::route()->getName()==('orderAdd.index') ? 'active ' : "" }}">
+										<a class="sidenav-item-link" href="orderAdd">
 											<span class="nav-text">New Order</span>
 										</a>
 									</li>

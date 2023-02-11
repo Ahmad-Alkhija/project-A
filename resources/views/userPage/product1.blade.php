@@ -37,7 +37,13 @@ product_page
                                 </div>
                                 <div class="single-pro-desc">
                                     <div class="single-pro-content">
-                                        <h5 class="ec-single-title">{{$products->name}}</h5>
+                                        <h5 class="ec-single-title">
+                                            {{$products->name}}
+                                            @if($products->saleType=="WholeSale"||$products->saleType=="RetailSale&WholeSale
+") <span class="badge bg-secondary">Whole Sale</span>
+@endif
+</h5>
+
                                         <div class="ec-single-rating-wrap">
                                             <div class="ec-single-rating">
                                                 <i class="ecicon eci-star fill"></i>
@@ -435,6 +441,12 @@ product_page
                                 <img class="hover-image"
                                     src="../images/{{$product->image}}" alt="Product" />
                             </a>
+                            @if($product->saleType=="WholeSale"||$product->saleType=="RetailSale&WholeSale
+")
+                <span class="flags saleT">
+                    <span class="new">whole sale</span>
+                </span>
+                @endif
                             @if(isset($product->offer->offer))
                             <span class="percentage">{{$product->offer->offer}}%</span>
                             @endif

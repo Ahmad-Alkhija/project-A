@@ -13,6 +13,8 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\ProductViewController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderAddController;
+
 
 
 
@@ -61,4 +63,6 @@ Route::group(['middleware'=>['AuthLogin']],function(){
     Route::resource('/product', ProductController::class);
     Route::resource('/listProduct', ListProductController::class);
     Route::resource('/offer', OfferController::class);
+    Route::resource('/orderAdd', OrderAddController::class);
+
 });
