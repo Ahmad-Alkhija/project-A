@@ -59,7 +59,7 @@
                     <div class="form-group row">
                         <label for="text" class="col-12 col-form- label" >Customer Name</label>
                         <div class="col-12">
-                            <input id="customerNumber"  class="form-control "name="customerNumber" type="text">
+                            <input id="customerName"  class="form-control "name="customerName" type="text">
                             <span class="text-danger error-text customerNumber_err"></span>
                         </div>
                     </div>
@@ -117,8 +117,15 @@ headers: {
   success:function(data){
     if($.isEmptyObject(data.error)){
                       console.log(data);
-                    //   deleteProductInput(data);
-                      alertSucces( 'success','The data is added sucessfully.');
+                if(data.error1!=undefined){
+                      alertSucces( 'error',data.error1);
+                }else{
+                    console.log(1);
+                    deleteDataCategory(data);
+                     alertSucces( 'success','The data is added sucessfully.');
+
+
+                }
                   }else{
                       printErrorMsg(data.error);
                   }

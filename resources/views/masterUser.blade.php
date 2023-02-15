@@ -15,7 +15,9 @@
     <title>@yield('title')</title>
 </head>
 <body class="@yield('class')">'
+    @if(Request::route()->getName()!='productView.show')
     @include('includeUser.tools')
+    @endif
     <div id="ec-overlay"><span class="loader_img"></span></div>
     @include('includeUser.navbar')
     @include('includeUser.cart')

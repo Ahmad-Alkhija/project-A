@@ -26,7 +26,7 @@
                     data-bs-target="#ec_quickview_modal"><img
                         src="assetsUser/images/icons/quickview.svg" class="svg_img pro_svg"
                         alt="" /></a>
-                <div class="ec-pro-actions">
+                {{-- <div class="ec-pro-actions">
                     <a href="compare.html" class="ec-btn-group compare"
                         title="Compare"><img src="assetsUser/images/icons/compare.svg"
                             class="svg_img pro_svg" alt="" /></a>
@@ -36,7 +36,7 @@
                     <a class="ec-btn-group wishlist" title="Wishlist"><img
                             src="assetsUser/images/icons/wishlist.svg"
                             class="svg_img pro_svg" alt="" /></a>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="ec-pro-content">

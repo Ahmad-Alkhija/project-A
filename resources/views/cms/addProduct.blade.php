@@ -139,7 +139,7 @@
                                     <div class="thumb-upload">
                                         <div class="thumb-edit">
                                             <input   name="images1[]" type='file' id="thumbUpload06"
-                                                class="image ec-image-upload"
+                                            style="width: 500px" class="image ec-image-upload"
                                                 accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"><img
                                                     src="assets/img/icons/edit.svg"
@@ -477,14 +477,14 @@ var counter_sizeE=0
 $("#addMoreSizeE").click(function(e){
 e.preventDefault();
 counter_sizeE++;
-$('#moreSizeE').append("<input name='size[]' type='text' class='size form-control' id='size"+counter_sizeE+"' class='size'>")
+$('#moreSizeE').append("<input name='size[]' type='text' class='size form-control' id='sizeE"+counter_sizeE+"' class='size'>")
 if(counter_sizeE==1){
 $( "#showLessSizeE" ).removeClass( "d-none" );
 }
 });
 $("#showLessSizeE").click(function(e){
 e.preventDefault();
-$("#size"+counter_sizeE).remove();
+$("#sizeE"+counter_sizeE).remove();
 counter_sizeE--;
 if(counter_sizeE==0){
 $( "#showLessSizeE" ).addClass( "d-none" )

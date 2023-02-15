@@ -38,13 +38,13 @@
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="about-us.html">About us</a></li>
                                     <li class="ec-footer-link"><a href="faq.html">FAQ</a></li>
-                                    <li class="ec-footer-link"><a href="track-order.html">Delivery Information</a></li>
+                                    {{-- <li class="ec-footer-link"><a href="track-order.html">Delivery Information</a></li> --}}
                                     <li class="ec-footer-link"><a href="contact-us.html">Contact us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-2 ec-footer-account">
+                    {{-- <div class="col-sm-12 col-lg-2 ec-footer-account">
                         <div class="ec-footer-widget">
                             <h4 class="ec-footer-heading">Account</h4>
                             <div class="ec-footer-links">
@@ -56,13 +56,12 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12 col-lg-2 ec-footer-service">
                         <div class="ec-footer-widget">
                             <h4 class="ec-footer-heading">Services</h4>
                             <div class="ec-footer-links">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="track-order.html">Discount Returns</a></li>
                                     <li class="ec-footer-link"><a href="privacy-policy.html">Policy & policy </a></li>
                                     <li class="ec-footer-link"><a href="terms-condition.html">Customer Service</a></li>
                                     <li class="ec-footer-link"><a href="terms-condition.html">Term & condition</a>
@@ -122,14 +121,14 @@
                     </div>
                     <!-- Footer Copyright End -->
                     <!-- Footer payment -->
-                    <div class="col footer-bottom-right">
+                    {{-- <div class="col footer-bottom-right">
                         <div class="footer-bottom-payment d-flex justify-content-end">
                             <div class="payment-link">
                                 <img src="{{asset('assetsUser/images/icons/payment.png')}}" alt="">
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Footer payment -->
                 </div>
             </div>

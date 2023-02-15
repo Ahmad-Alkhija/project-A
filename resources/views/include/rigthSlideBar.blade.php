@@ -141,20 +141,20 @@
 						</li>
 
 						<!-- Orders -->
-						<li class="has-sub {{Request::route()->getName()==('orderAdd.index')? 'active expand' : "" }}">
+						<li class="has-sub {{Request::route()->getName()==('orderAdd.index')||Request::route()->getName()==('orderList.index')? 'active expand' : "" }}">
 							<a class="sidenav-item-link" href="javascript:void(0)">
 								<i class="mdi mdi-cart"></i>
 								<span class="nav-text">Orders</span> <b class="caret"></b>
 							</a>
-							<div class="collapse {{Request::route()->getName()==('product.orderAdd') ? 'show' : "" }}">
+							<div class="collapse {{Request::route()->getName()==('product.orderAdd')||Request::route()->getName()==('orderList.index') ? 'show' : "" }}">
 								<ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
 									<li class="{{Request::route()->getName()==('orderAdd.index') ? 'active ' : "" }}">
 										<a class="sidenav-item-link" href="orderAdd">
 											<span class="nav-text">New Order</span>
 										</a>
 									</li>
-									<li class="">
-										<a class="sidenav-item-link" href="order-history.html">
+									<li class="{{Request::route()->getName()==('orderList.index') ? 'active' : "" }}">
+										<a class="sidenav-item-link" href="orderList">
 											<span class="nav-text">Order History</span>
 										</a>
 									</li>

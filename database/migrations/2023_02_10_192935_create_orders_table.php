@@ -23,8 +23,10 @@ class CreateOrdersTable extends Migration
             $table->string("customerEmail")->nullable();
             $table->string("phoneNumber");
             $table->integer("priceSale");
-            $table->integer("priceProducr");
+            $table->integer("priceProduct");
             $table->integer("priceOffer")->nullable();
+            $table->unsignedBigInteger("product_id");
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

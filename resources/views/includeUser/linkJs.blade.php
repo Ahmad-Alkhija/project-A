@@ -34,5 +34,48 @@
 
 
 
+<script>
+
+  $(document).on('click','.quickview',function(e){
+    categoryUser_id=$(this).attr("href");
+    $.ajax({
+      type:"GET",
+      url:'/categoryUser/'+categoryUser_id,
+      success:function(data){
+    console.log(data);
 
 
+    jQuery('.img-responsive').attr('src', "../images/"+data.image+"");
+    $('.nameP').html(data.name);
+    if(data.offer==null){
+        $('.price-modal').html(data.price);
+        $('.old-price-modal').html('');
+
+    }else{
+        $('.old-price-modal').html(data.offer.oldPrice);
+        $('.new-price-modal').html(data.offer.newPrice);
+
+
+    }
+    $('.sortD').html(data.sortDescription);
+    console.log(data.color)
+
+    data.color.forEach(function (color) {
+
+
+        $('.color-modal').append('<li class="colorMM" ><span class="colorMM" style="background-color:'+color+';"></span></li>')
+
+     })
+
+
+
+
+
+
+      }
+    });
+    });
+    $("#ec_quickview_modal").on('hide.bs.modal', function(){
+        $('.colorMM').remove()
+    });
+</script>

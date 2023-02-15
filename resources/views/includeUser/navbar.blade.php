@@ -18,11 +18,11 @@
                     </div>
                     <!-- Header Top social End -->
                     <!-- Header Top Message Start -->
-                    <div class="col text-center header-top-center">
+                    {{-- <div class="col text-center header-top-center">
                         <div class="header-top-message text-upper">
                             <span>Free Shipping</span>This Week Order Over - $75
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Header Top Message End -->
                     <!-- Header Top Language Currency -->
                     <div class="col header-top-right d-none d-lg-block">
@@ -52,7 +52,7 @@
                     </div>
                     <!-- Header Top Language Currency -->
                     <!-- Header Top responsive Action -->
-                    <div class="col d-lg-none ">
+                    {{-- <div class="col d-lg-none ">
                         <div class="ec-header-bottons">
                             <!-- Header User Start -->
                             <div class="ec-header-user dropdown">
@@ -88,7 +88,7 @@
                             </a>
                             <!-- Header menu End -->
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Header Top responsive Action -->
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         <div class="align-self-center">
                             <div class="header-logo">
                                 <a href="index.html"><img src="{{asset('assetsUser/images/logo/logo.png')}}" alt="Site Logo" /><img
-                                        class="dark-logo" src="{{asset('assetsUser/images/logo/dark-logo.png" alt="Site Logo')}}"
+                                        class="dark-logo" src="{{asset('assetsUser/images/logo/dark-logo.png')}}" alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                         <!-- Ec Header Search End -->
 
                         <!-- Ec Header Button Start -->
-                        <div class="align-self-center">
+                        {{-- <div class="align-self-center">
                             <div class="ec-header-bottons">
 
                                 <!-- Header User Start -->
@@ -151,7 +151,7 @@
                                 </a>
                                 <!-- Header Cart End -->
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -198,7 +198,7 @@
                             <ul>
                                 <li><a href="/home">Home</a></li>
                                 <li class="dropdown position-static"><a href="/categoryUser">Categories</a>
-                                    <ul class="mega-menu d-block">
+                                    {{-- <ul class="mega-menu d-block">
                                         <li class="d-flex">
                                             <ul class="d-block">
                                                 <li class="menu_title"><a href="javascript:void(0)">Classic
@@ -265,9 +265,9 @@
                                                             alt=""></a></li>
                                             </ul>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Products</a>
+                                {{-- <li class="dropdown"><a href="javascript:void(0)">Products</a>
                                     <ul class="sub-menu">
                                         <li class="dropdown position-static"><a href="javascript:void(0)">Product page
                                                 <i class="ecicon eci-angle-right"></i></a>
@@ -307,8 +307,8 @@
                                         <li><a href="product-video-full-width.html">Video full width</a></li>
                                         <li><a href="product-gallery-full-width.html">Gallery full width</a></li>
                                     </ul>
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                                </li> --}}
+                                {{-- <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="about-us.html">About Us</a></li>
                                         <li><a href="contact-us.html">Contact Us</a></li>
@@ -322,8 +322,8 @@
                                         <li><a href="terms-condition.html">Terms Condition</a></li>
                                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                     </ul>
-                                </li>
-                                <li class="dropdown"><span class="main-label-note-new" data-toggle="tooltip"
+                                </li> --}}
+                                {{-- <li class="dropdown"><span class="main-label-note-new" data-toggle="tooltip"
                                         title="NEW"></span><a href="javascript:void(0)">Others</a>
                                     <ul class="sub-menu">
                                         <li class="dropdown position-static"><a href="javascript:void(0)">Mail
@@ -409,8 +409,8 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Blog</a>
+                                </li> --}}
+                                {{-- <li class="dropdown"><a href="javascript:void(0)">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
                                         <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
@@ -419,8 +419,8 @@
                                         <li><a href="blog-full-width.html">Blog full width</a></li>
                                         <li><a href="blog-detail-full-width.html">Blog detail full width</a></li>
                                     </ul>
-                                </li>
-                                <li class="dropdown"><a href="javascript:void(0)">Elements</a>
+                                </li> --}}
+                                {{-- <li class="dropdown"><a href="javascript:void(0)">Elements</a>
                                     <ul class="sub-menu">
                                         <li><a href="elemets-products.html">Products</a></li>
                                         <li><a href="elemets-typography.html">Typography</a></li>
@@ -431,9 +431,11 @@
                                         <li><a href="elemets-accordions.html">Accordions</a></li>
                                         <li><a href="elemets-blog.html">Blogs</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
+                                <li><a href="offer.html">Contact As</a></li>
+                                <li><a href="offer.html">About As</a></li>
                                 <li><a href="offer.html">Hot Offers</a></li>
-                                <li class="dropdown scroll-to"><a href="javascript:void(0)"><img
+                                {{-- <li class="dropdown scroll-to"><a href="javascript:void(0)"><img
                                     src="{{asset('assetsUser/images/icons/scroll.svg')}}" class="svg_img header_svg scroll" alt="" /></a>
                                     <ul class="sub-menu">
                                         <li class="menu_title">Scroll To Section</li>
@@ -446,7 +448,7 @@
                                         <li><a href="javascript:void(0)" data-scroll="reviews" class="nav-scroll">Client Review</a></li>
                                         <li><a href="javascript:void(0)" data-scroll="insta" class="nav-scroll">Instagram Feed</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
